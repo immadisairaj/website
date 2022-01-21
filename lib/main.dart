@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:website/screens/home/home.dart';
+import 'package:website/screens/splash_screen/splash_screen.dart';
 
 void main() {
   // sets the url strategy for web-pages as
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: const Home(),
+      home: const SplashScreen(),
     );
   }
 }
