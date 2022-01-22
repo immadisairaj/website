@@ -39,7 +39,8 @@ dependencies:
 
   # packages
   url_launcher: ^6.0.18
-  rive: ^0.8.1
+  rive: ^0.8.1 # animations
+  sensors_plus: ^1.2.1 # mobile movements
 
 dev_dependencies:
   flutter_test:
