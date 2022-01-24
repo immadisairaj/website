@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
@@ -52,6 +51,13 @@ class _HomeState extends State<Home> {
           width: width,
           child: Stack(
             children: [
+              // water floating at the bottom
+              RiveAnimation.asset(
+                'assets/rive/water-floating.riv',
+                artboard: height > width ? 'mobile' : 'pc',
+                fit: BoxFit.fill,
+              ),
+              // name widget, includes s logo rotation when hover
               Center(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
@@ -94,38 +100,42 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+              // redirection to previous site
               Positioned(
                 bottom: height * 0.05,
                 width: width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Site Under Construction..',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Please visit',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                            onPressed: () => _launchURL(
-                                'https://immadisairaj.github.io/carousel-portfolio'),
-                            child: const Text('here'),
+                child: Opacity(
+                  opacity: 0.7,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Site Under Construction..',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Please visit',
+                            style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                        const Text(
-                          'for previous site.',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ],
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              onPressed: () => _launchURL(
+                                  'https://immadisairaj.github.io/carousel-portfolio'),
+                              child: const Text('here'),
+                            ),
+                          ),
+                          const Text(
+                            'for previous site.',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
