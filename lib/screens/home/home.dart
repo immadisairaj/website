@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
               ),
               // 5 social icons with box and animations
               Positioned(
-                bottom: height > width ? height * 0.1 : height * 0.02,
+                bottom: height > width ? height * 0.1 : height * 0.03,
                 child: Container(
                   color: Colors.transparent,
                   width: width,

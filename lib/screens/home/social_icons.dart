@@ -23,7 +23,7 @@ class _SocialIconsState extends State<SocialIcons> {
 
     return MouseRegion(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // use [SocialBoxAnimation] widget to access animated boxes
           SocialBoxAnimation(
@@ -129,10 +129,10 @@ class _SocialBoxAnimationState extends State<SocialBoxAnimation> {
       child: SizedBox(
         height: widget.height > widget.width
             ? widget.width * 0.2
-            : widget.width * 0.15,
+            : widget.width * 0.1,
         width: widget.height > widget.width
             ? widget.width * 0.2
-            : widget.width * 0.15,
+            : widget.width * 0.1,
         child: Center(
           child: MouseRegion(
             onEnter: (_) {
@@ -145,11 +145,11 @@ class _SocialBoxAnimationState extends State<SocialBoxAnimation> {
             cursor: SystemMouseCursors.click,
             child: SizedBox(
               height: widget.height > widget.width
-                  ? widget.width * 0.2
-                  : widget.width * 0.1,
+                  ? widget.width * 0.15
+                  : widget.width * 0.07,
               width: widget.height > widget.width
-                  ? widget.width * 0.2
-                  : widget.width * 0.1,
+                  ? widget.width * 0.15
+                  : widget.width * 0.07,
               child: GestureDetector(
                 onTap: () {
                   if (widget.isWebMobile) {
