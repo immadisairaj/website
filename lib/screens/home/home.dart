@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 import 'package:url_launcher/url_launcher.dart';
+import 'package:website/screens/home/name.dart';
+import 'package:website/screens/home/social_icons.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,11 +29,6 @@ class _HomeState extends State<Home> {
   /// - namePaddingfromLTRB[3] is bottom
   List<double> namePaddingfromLTRB = [0.0, 0.0, 0.0, 0.0];
 
-  /// boolean value for logo rotation animation
-  /// - _logoHover?.value = true; to rotate
-  /// - _logoHover?.value = false; to stop rotating
-  SMIBool? _logoHover;
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -53,9 +50,18 @@ class _HomeState extends State<Home> {
             children: [
               // water floating at the bottom
               RiveAnimation.asset(
-                'assets/rive/water-floating.riv',
+                'assets/rive/water-home.riv',
                 artboard: height > width ? 'mobile' : 'pc',
                 fit: BoxFit.fill,
+              ),
+              // 5 social icons with box and animations
+              Positioned(
+                bottom: height > width ? height * 0.1 : height * 0.02,
+                child: Container(
+                  color: Colors.transparent,
+                  width: width,
+                  child: const SocialIcons(),
+                ),
               ),
               // name widget, includes s logo rotation when hover
               Center(
@@ -65,77 +71,42 @@ class _HomeState extends State<Home> {
                       namePaddingfromLTRB[1],
                       namePaddingfromLTRB[2],
                       namePaddingfromLTRB[3]),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MouseRegion(
-                        onEnter: (event) => _logoHover?.value = true,
-                        onExit: (event) => _logoHover?.value = false,
-                        child: CircleAvatar(
-                          radius: width * 0.07,
-                          // backgroundColor: Colors.transparent,
-                          backgroundColor: const Color(0xFF42C9DB),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RiveAnimation.asset(
-                              'assets/rive/s-logo-rotation.riv',
-                              fit: BoxFit.cover,
-                              onInit: _onLogoRotationInit,
-                            ),
-                          ),
-                          // foregroundImage: const AssetImage('assets/logo.png'),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'ai Rajendra Immadi',
-                          style: TextStyle(
-                              color: const Color(0xFF42C9DB),
-                              fontWeight: FontWeight.w500,
-                              fontSize: width * 0.08),
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: const Name(),
                 ),
               ),
               // redirection to previous site
               Positioned(
-                bottom: height * 0.05,
+                top: height * 0.05,
                 width: width,
-                child: Opacity(
-                  opacity: 0.7,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Site Under Construction..',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Please visit',
-                            style: TextStyle(color: Colors.white),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Site Under Construction..',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Please visit',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            onPressed: () => _launchURL(
+                                'https://immadisairaj.github.io/carousel-portfolio'),
+                            child: const Text('here'),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(
-                              onPressed: () => _launchURL(
-                                  'https://immadisairaj.github.io/carousel-portfolio'),
-                              child: const Text('here'),
-                            ),
-                          ),
-                          const Text(
-                            'for previous site.',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                        const Text(
+                          'for previous site.',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -143,15 +114,6 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
-  }
-
-  /// initializes the logo rotation rive animation
-  ///
-  /// load from asset/rive/s-logo-rotation.riv
-  void _onLogoRotationInit(Artboard artboard) {
-    final controller = StateMachineController.fromArtboard(artboard, 'rotate');
-    artboard.addController(controller!);
-    _logoHover = controller.findInput<bool>('Hover') as SMIBool;
   }
 
   /// updates [x] and [y] taking input of [event]
