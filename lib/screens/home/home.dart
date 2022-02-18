@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 2600), () {
+    Future.delayed(const Duration(milliseconds: 3000), () {
       setState(() {
         _started = true;
       });
@@ -91,54 +91,60 @@ class _HomeState extends State<Home> {
                 child: SizedBox(
                   width: height > width ? width : width * 0.45,
                   height: height > width ? height * 0.35 : height * 0.4,
-                  child: RiveAnimation.asset(
-                    'assets/rive/water-home.riv',
-                    artboard: 'board',
-                    fit: height > width ? BoxFit.fill : BoxFit.cover,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                ),
-              ),
-              // redirection to previous site
-              Positioned(
-                top: height > width ? height * 0.2 : height * 0.21,
-                width: width,
-                child: AnimatedOpacity(
-                  opacity: _started ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 1000),
-                  curve: Curves.easeInOut,
-                  child: SizedBox(
-                    width: height > width ? width * 0.8 : width * 0.4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Site Under Construction..',
-                          style: TextStyle(color: Colors.black),
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: RiveAnimation.asset(
+                          'assets/rive/water-home.riv',
+                          artboard: 'board',
+                          fit: height > width ? BoxFit.fill : BoxFit.cover,
+                          alignment: Alignment.bottomCenter,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'Please visit',
-                              style: TextStyle(color: Colors.black),
+                      ),
+                      Positioned(
+                        bottom: height > width ? height * 0.07 : height * 0.1,
+                        width: height > width ? width : width * 0.45,
+                        child: AnimatedOpacity(
+                          opacity: _started ? 1.0 : 0.0,
+                          duration: const Duration(milliseconds: 1000),
+                          curve: Curves.easeInOut,
+                          child: SizedBox(
+                            width: height > width ? width * 0.8 : width * 0.4,
+                            // redirection to previous site
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Site Under Construction..',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      'Please visit',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ElevatedButton(
+                                        onPressed: () => _launchURL(
+                                            'https://immadisairaj.github.io/CarouselPortfolio'),
+                                        child: const Text('here'),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'for previous site.',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ElevatedButton(
-                                onPressed: () => _launchURL(
-                                    'https://immadisairaj.github.io/CarouselPortfolio'),
-                                child: const Text('here'),
-                              ),
-                            ),
-                            const Text(
-                              'for previous site.',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ],
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
