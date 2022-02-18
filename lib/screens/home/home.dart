@@ -89,8 +89,8 @@ class _HomeState extends State<Home> {
               Align(
                 alignment: Alignment.topCenter,
                 child: SizedBox(
-                  width: height > width ? width : width * 0.45,
-                  height: height > width ? height * 0.35 : height * 0.4,
+                  width: height > width ? width * 0.8 : width * 0.45,
+                  height: height > width ? height * 0.3 : height * 0.4,
                   child: Stack(
                     children: [
                       Positioned.fill(
@@ -102,8 +102,8 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Positioned(
-                        bottom: height > width ? height * 0.07 : height * 0.1,
-                        width: height > width ? width : width * 0.45,
+                        bottom: height > width ? height * 0.06 : height * 0.1,
+                        width: height > width ? width * 0.8 : width * 0.45,
                         child: AnimatedOpacity(
                           opacity: _started ? 1.0 : 0.0,
                           duration: const Duration(milliseconds: 1000),
