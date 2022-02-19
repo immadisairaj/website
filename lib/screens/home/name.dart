@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 
 class Name extends StatefulWidget {
@@ -14,44 +15,65 @@ class _NameState extends State<Name> {
   /// - _logoHover?.value = false; to stop rotating
   SMIBool? _logoHover;
 
+  /// variable which is false first and set to true after 100 milliseconds
+  ///
+  /// this is to ensure the font is loaded before the text is shown
+  ///
+  /// used with Animated widgets
+  var _started = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 100), () {
+      setState(() {
+        _started = true;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Container(
-      color: Colors.transparent,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          MouseRegion(
-            onEnter: (event) => _logoHover?.value = true,
-            onExit: (event) => _logoHover?.value = false,
-            child: CircleAvatar(
-              radius: width * 0.07,
-              backgroundColor: const Color(0xFF42C9DB),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RiveAnimation.asset(
-                  'assets/rive/s-logo-rotation.riv',
-                  fit: BoxFit.cover,
-                  onInit: _onLogoRotationInit,
+    return AnimatedOpacity(
+      opacity: _started ? 1.0 : 0.0,
+      duration: const Duration(milliseconds: 1000),
+      child: Container(
+        color: Colors.transparent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MouseRegion(
+              onEnter: (event) => _logoHover?.value = true,
+              onExit: (event) => _logoHover?.value = false,
+              child: CircleAvatar(
+                radius: width * 0.07,
+                backgroundColor: const Color(0xFF42C9DB),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RiveAnimation.asset(
+                    'assets/rive/s-logo-rotation.riv',
+                    fit: BoxFit.cover,
+                    onInit: _onLogoRotationInit,
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'ai Rajendra Immadi',
-              style: TextStyle(
-                color: const Color(0xFF42C9DB),
-                fontWeight: FontWeight.w500,
-                fontSize: width * 0.08,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'ai Rajendra Immadi',
+                style: GoogleFonts.meriendaOne(
+                  color: const Color(0xFF42C9DB),
+                  fontWeight: FontWeight.w500,
+                  fontSize: width * 0.06,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:website/screens/splash_screen/splash_screen.dart';
+import 'package:website/router/site_route_information_parser.dart';
+import 'package:website/router/site_router_delegate.dart';
 
 void main() {
-  // sets the url strategy for web-pages as
-  // website/path instead of website/#/path
-  setUrlStrategy(PathUrlStrategy());
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final SiteRouteInformationParser siteRouteInformationParser =
+      SiteRouteInformationParser();
+  final SiteRouterDelegate siteRouterDelegate = SiteRouterDelegate();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       // remove debug checker
       debugShowCheckedModeBanner: false,
       title: 'immadisairaj',
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: const SplashScreen(),
+      routeInformationParser: siteRouteInformationParser,
+      routerDelegate: siteRouterDelegate,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -6,7 +7,9 @@ import 'package:website/screens/home/name.dart';
 import 'package:website/screens/home/social_icons.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key? key, required this.onAboutPress}) : super(key: key);
+
+  final VoidCallback onAboutPress;
 
   @override
   State<Home> createState() => _HomeState();
@@ -29,15 +32,22 @@ class _HomeState extends State<Home> {
   /// - namePaddingfromLTRB[3] is bottom
   List<double> namePaddingfromLTRB = [0.0, 0.0, 0.0, 0.0];
 
+  /// variable which is false first and set to true after 3 second
+  ///
+  /// this is to ensure the text is loaded after the animation
+  ///
+  /// used with Animated widgets
   var _started = false;
 
   @override
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 3000), () {
-      setState(() {
-        _started = true;
-      });
+      if (mounted) {
+        setState(() {
+          _started = true;
+        });
+      }
     });
   }
 
@@ -102,45 +112,61 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Positioned(
-                        bottom: height > width ? height * 0.06 : height * 0.1,
+                        bottom: height > width ? height * 0.055 : height * 0.12,
                         width: height > width ? width * 0.8 : width * 0.45,
-                        child: AnimatedOpacity(
-                          opacity: _started ? 1.0 : 0.0,
-                          duration: const Duration(milliseconds: 1000),
+                        child: AnimatedScale(
+                          scale: _started ? 1.0 : 0.0,
+                          duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut,
-                          child: SizedBox(
-                            width: height > width ? width * 0.8 : width * 0.4,
-                            // redirection to previous site
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Site Under Construction..',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      'Please visit',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: ElevatedButton(
-                                        onPressed: () => _launchURL(
-                                            'https://immadisairaj.github.io/CarouselPortfolio'),
-                                        child: const Text('here'),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: width * 0.08),
+                                child: ElevatedButton(
+                                  onPressed: () => widget.onAboutPress(),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: const Color(0xFFE39356),
+                                    shadowColor: Colors.grey,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3.0),
+                                    child: Text(
+                                      'About',
+                                      style: GoogleFonts.permanentMarker(
+                                        fontSize: height > width
+                                            ? width * 0.04
+                                            : width * 0.02,
+                                        color: Colors.white,
                                       ),
                                     ),
-                                    const Text(
-                                      'for previous site.',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: width * 0.08),
+                                child: ElevatedButton(
+                                  onPressed: () => _launchURL(
+                                      'https://immadisairaj.github.io/blog'),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: const Color(0xFFE39356),
+                                    shadowColor: Colors.grey,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3.0),
+                                    child: Text(
+                                      'Blog',
+                                      style: GoogleFonts.permanentMarker(
+                                        fontSize: height > width
+                                            ? width * 0.04
+                                            : width * 0.02,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -157,11 +183,13 @@ class _HomeState extends State<Home> {
 
   /// updates [x] and [y] taking input of [event]
   void _onHoverUpdate(PointerEvent event) {
-    setState(() {
-      x = event.position.dx;
-      y = event.position.dy;
-      _updateNamePadding(x: x, y: y);
-    });
+    if (mounted) {
+      setState(() {
+        x = event.position.dx;
+        y = event.position.dy;
+        _updateNamePadding(x: x, y: y);
+      });
+    }
   }
 
   /// updates padding of name and avatar
@@ -214,8 +242,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
 
-  void _launchURL(String url) async {
-    if (!await launch(url)) throw 'Could not launch $url';
-  }
+void _launchURL(String url) async {
+  if (!await launch(url)) throw 'Could not launch $url';
 }
