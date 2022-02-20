@@ -15,7 +15,6 @@ class SiteRouterDelegate extends RouterDelegate<SiteRoutePath>
   bool show404 = false;
   bool isHome = false;
   bool isAbout = false;
-  bool isSplash = true;
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +22,25 @@ class SiteRouterDelegate extends RouterDelegate<SiteRoutePath>
       key: navigatorKey,
       pages: [
         MaterialPage(
-          key: const ValueKey('SplashScreenPage'),
-          child: SplashScreen(
-            onHomeNav: () {
-              if (!show404) {
-                isHome = true;
-                isAbout = false;
-                notifyListeners();
-              }
-            },
-          ),
+          key: const ValueKey('Base'),
+          child: Container(),
         ),
         if (show404)
           const MaterialPage(
               key: ValueKey('UnknownPage'), child: UnknownScreen()),
+        if (!isHome && !isAbout && !show404)
+          MaterialPage(
+            key: const ValueKey('SplashPage'),
+            child: SplashScreen(
+              onHomeNav: () {
+                if (!show404 && !isHome && !isAbout) {
+                  isHome = true;
+                  isAbout = false;
+                  notifyListeners();
+                }
+              },
+            ),
+          ),
         if (isHome || isAbout)
           MaterialPage(
             key: const ValueKey('HomePage'),

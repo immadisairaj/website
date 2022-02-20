@@ -65,10 +65,10 @@ class _NameState extends State<Name> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'ai Rajendra Immadi',
-                style: GoogleFonts.meriendaOne(
+                style: GoogleFonts.rubik(
                   color: const Color(0xFF42C9DB),
                   fontWeight: FontWeight.w500,
-                  fontSize: width * 0.06,
+                  fontSize: width * 0.075,
                 ),
               ),
             ),

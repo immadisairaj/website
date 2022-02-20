@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Positioned(
-                        bottom: height > width ? height * 0.055 : height * 0.12,
+                        bottom: height > width ? height * 0.065 : height * 0.11,
                         width: height > width ? width * 0.8 : width * 0.45,
                         child: AnimatedScale(
                           scale: _started ? 1.0 : 0.0,
@@ -127,17 +127,19 @@ class _HomeState extends State<Home> {
                                   onPressed: () => widget.onAboutPress(),
                                   style: ElevatedButton.styleFrom(
                                     primary: const Color(0xFFE39356),
-                                    shadowColor: Colors.grey,
+                                    shadowColor: Colors.black,
+                                    elevation: 8,
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(3.0),
                                     child: Text(
                                       'About',
-                                      style: GoogleFonts.permanentMarker(
+                                      style: GoogleFonts.robotoMono(
                                         fontSize: height > width
                                             ? width * 0.04
                                             : width * 0.02,
                                         color: Colors.white,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
@@ -150,17 +152,19 @@ class _HomeState extends State<Home> {
                                       'https://immadisairaj.github.io/blog'),
                                   style: ElevatedButton.styleFrom(
                                     primary: const Color(0xFFE39356),
-                                    shadowColor: Colors.grey,
+                                    shadowColor: Colors.black,
+                                    elevation: 8,
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(3.0),
                                     child: Text(
                                       'Blog',
-                                      style: GoogleFonts.permanentMarker(
+                                      style: GoogleFonts.robotoMono(
                                         fontSize: height > width
                                             ? width * 0.04
                                             : width * 0.02,
                                         color: Colors.white,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
