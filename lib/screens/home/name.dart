@@ -25,7 +25,7 @@ class _NameState extends State<Name> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 100), () {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       setState(() {
         _started = true;
       });

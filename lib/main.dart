@@ -3,6 +3,7 @@ import 'package:website/router/site_route_information_parser.dart';
 import 'package:website/router/site_router_delegate.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
