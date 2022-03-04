@@ -15,7 +15,7 @@ class _NameState extends State<Name> {
   /// - _logoHover?.value = false; to stop rotating
   SMIBool? _logoHover;
 
-  /// variable which is false first and set to true after 100 milliseconds
+  /// variable which is false first and set to true after widget builds
   ///
   /// this is to ensure the font is loaded before the text is shown
   ///
@@ -34,7 +34,6 @@ class _NameState extends State<Name> {
 
   @override
   Widget build(BuildContext context) {
-    // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return AnimatedOpacity(

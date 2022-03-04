@@ -38,7 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # packages
-  url_launcher: ^6.0.18
+  url_launcher: ^6.0.20
   rive: ^0.8.1 # animations
   google_fonts: ^2.3.1 # google fonts
   animated_background: ^2.0.0 # background animations
