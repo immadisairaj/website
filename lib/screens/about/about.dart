@@ -1,4 +1,5 @@
 import 'package:animated_background/animated_background.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
@@ -15,9 +16,10 @@ class About extends StatefulWidget {
 
 class _AboutState extends State<About> with TickerProviderStateMixin {
   @override
-  void initState() {
+  void didChangeDependencies() {
+    // precache image when going to next page (about)
     precacheImage(const AssetImage('assets/rajendra.jpeg'), context);
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override
@@ -54,12 +56,24 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                 floating: true,
                 stretch: isLandscape ? false : true,
                 leading: isLandscape
-                    ? const Padding(
-                        padding: EdgeInsets.only(
+                    ? Padding(
+                        padding: const EdgeInsets.only(
                             left: 20.0, top: 10, bottom: 10, right: 0),
-                        child: logo,
+                        child: MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: GestureDetector(
+                            child: logo,
+                            onTap: () => Navigator.of(context).pop(),
+                          ),
+                        ),
                       )
-                    : null,
+                    : IconButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: const Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                        ),
+                      ),
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: isLandscape ? false : true,
                   title: Text(
@@ -85,68 +99,69 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                       SizedBox(
                         height: firstContentHeight,
                         width: contentWidth,
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: isLandscape
-                                ? Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SizedBox(
-                                        height: contentWidth / 3,
-                                        width: contentWidth / 3,
-                                        child: const ProfileImage(),
-                                      ),
-                                      SizedBox(
-                                        width: contentWidth / 1.7,
-                                        child: Text(
-                                          AppConstants.bio,
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.rubik(
-                                            color: Colors.white,
-                                            letterSpacing: 2,
-                                            wordSpacing: 2,
-                                            height: 1.25,
-                                            fontSize: contentWidth / 3 * 0.075,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      SizedBox(
-                                        height: firstContentHeight / 3,
-                                        width: firstContentHeight / 3,
-                                        child: const ProfileImage(),
-                                      ),
-                                      SizedBox(
-                                        height: firstContentHeight / 1.8,
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 2.0),
-                                          child: Center(
-                                            child: Text(
-                                              AppConstants.bio,
-                                              textAlign: TextAlign.center,
-                                              style: GoogleFonts.rubik(
-                                                color: Colors.white,
-                                                letterSpacing: 0.2,
-                                                fontSize: firstContentHeight /
-                                                    3 *
-                                                    0.11,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                        child: isLandscape
+                            ? Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Flexible(
+                                    flex: 2,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: ProfileImage(),
+                                    ),
                                   ),
-                          ),
-                        ),
+                                  Flexible(
+                                    flex: 5,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: Text(
+                                        AppConstants.bio,
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.rubik(
+                                          color: Colors.white,
+                                          letterSpacing: 2,
+                                          wordSpacing: 2,
+                                          height: 1.25,
+                                          fontSize: contentWidth / 3 * 0.075,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  const Flexible(
+                                    flex: 2,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(2.0),
+                                      child: ProfileImage(),
+                                    ),
+                                  ),
+                                  Flexible(
+                                    flex: 4,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 2.0),
+                                      child: Text(
+                                        AppConstants.bio,
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.rubik(
+                                          color: Colors.white,
+                                          letterSpacing: 0.2,
+                                          fontSize:
+                                              firstContentHeight / 3 * 0.11,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                       ),
                       // redirect to old site
                       SizedBox(

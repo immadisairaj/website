@@ -52,6 +52,13 @@ class _HomeState extends State<Home> {
   }
 
   @override
+  void didChangeDependencies() {
+    // precache image when going to next page (about)
+    precacheImage(const AssetImage('assets/rajendra.jpeg'), context);
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
