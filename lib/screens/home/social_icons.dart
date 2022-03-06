@@ -153,11 +153,7 @@ class _SocialBoxAnimationState extends State<SocialBoxAnimation> {
               child: GestureDetector(
                 onTap: () {
                   if (widget.isWebMobile) {
-                    // TODO: try to add uncommented lines and test
-                    // _hoverTrigger?.fire();
-                    // Future.delayed(const Duration(milliseconds: 1000), () {
                     _launchURL(widget.link);
-                    // });
                   } else {
                     _hover?.value = false;
                     _launchURL(widget.link);
