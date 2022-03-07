@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:js/js.dart';
 import 'package:website/router/site_route_path.dart';
 import 'package:website/router/site_transition_delegate.dart';
 import 'package:website/screens/about/about.dart';
 import 'package:website/screens/home/home.dart';
 import 'package:website/screens/splash_screen/splash_screen.dart';
 import 'package:website/screens/unknown/unknown.dart';
+
+// use send navigation js events from web/app.js
+@JS('sendNavigation')
+external void sendNavigation(String routeName);
 
 class SiteRouterDelegate extends RouterDelegate<SiteRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<SiteRoutePath> {
@@ -77,15 +82,19 @@ class SiteRouterDelegate extends RouterDelegate<SiteRoutePath>
   @override
   SiteRoutePath get currentConfiguration {
     if (_show404) {
+      sendNavigation('/404');
       return SiteRoutePath.unknown();
     }
 
     if (_isHome) {
+      sendNavigation('/home');
       return SiteRoutePath.home();
     }
     if (_isAbout) {
+      sendNavigation('/about');
       return SiteRoutePath.about();
     }
+    sendNavigation('/');
     return SiteRoutePath.splash();
   }
 
