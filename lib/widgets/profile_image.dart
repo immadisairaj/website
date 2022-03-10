@@ -16,6 +16,7 @@ class ProfileImage extends StatelessWidget {
         child: Image.asset(
           'assets/rajendra.jpeg',
           fit: BoxFit.cover,
+          alignment: Alignment.topCenter,
         ),
       ),
     );

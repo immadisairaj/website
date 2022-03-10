@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:website/constants/constants.dart';
+import 'package:website/screens/about/bio.dart';
 import 'package:website/widgets/page_status.dart';
-import 'package:website/widgets/profile_image.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -16,13 +15,32 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> with TickerProviderStateMixin {
+  /// scroll controller for the whole page
   final ScrollController _scrollController =
       ScrollController(initialScrollOffset: 0);
+
+  /// provides the percentage of page scrolled to the [PageStatus] widget
   double _pageLevel = 0;
+
+  /// controller that drives logo scale animation when in landscape
+  late AnimationController _logoAnimationController;
+  late Animation<double> _logoScale;
   @override
   void initState() {
-    _scrollController.addListener(_scrollListener);
     super.initState();
+    _scrollController.addListener(_scrollListener);
+
+    _logoAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 100),
+    );
+
+    _logoScale = Tween<double>(begin: 1, end: 0.9).animate(
+      CurvedAnimation(
+        parent: _logoAnimationController,
+        curve: Curves.easeInOut,
+      ),
+    );
   }
 
   _scrollListener() {
@@ -42,13 +60,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
   }
 
   @override
-  void didChangeDependencies() {
-    // precache image when going to next page (about)
-    precacheImage(const AssetImage('assets/rajendra.jpeg'), context);
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -58,8 +69,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
       'assets/rive/s-logo-rotation.riv',
       fit: BoxFit.fitHeight,
     );
-
-    double firstContentHeight = isLandscape ? height * 0.9 : height * 0.7;
     double contentWidth = width * 0.8;
 
     return Scaffold(
@@ -91,9 +100,15 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 left: 20.0, top: 10, bottom: 10, right: 0),
                             child: MouseRegion(
                               cursor: SystemMouseCursors.click,
-                              child: GestureDetector(
-                                child: logo,
-                                onTap: () => Navigator.of(context).pop(),
+                              onEnter: (_) =>
+                                  _logoAnimationController.forward(),
+                              onExit: (_) => _logoAnimationController.reverse(),
+                              child: ScaleTransition(
+                                scale: _logoScale,
+                                child: GestureDetector(
+                                  child: logo,
+                                  onTap: () => Navigator.of(context).pop(),
+                                ),
                               ),
                             ),
                           )
@@ -126,74 +141,10 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            height: firstContentHeight,
-                            width: contentWidth,
-                            child: isLandscape
-                                ? Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      const Flexible(
-                                        flex: 2,
-                                        child: Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: ProfileImage(),
-                                        ),
-                                      ),
-                                      Flexible(
-                                        flex: 5,
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 10),
-                                          child: Text(
-                                            AppConstants.bio,
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.rubik(
-                                              color: Colors.white,
-                                              letterSpacing: 2,
-                                              wordSpacing: 2,
-                                              height: 1.25,
-                                              fontSize:
-                                                  contentWidth / 3 * 0.075,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      const Flexible(
-                                        flex: 2,
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2.0),
-                                          child: ProfileImage(),
-                                        ),
-                                      ),
-                                      Flexible(
-                                        flex: 4,
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 2.0),
-                                          child: Text(
-                                            AppConstants.bio,
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.rubik(
-                                              color: Colors.white,
-                                              letterSpacing: 0.2,
-                                              fontSize:
-                                                  firstContentHeight / 3 * 0.11,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                          Bio(
+                            controller: _scrollController,
+                            screenHeight: height,
+                            screenWidth: width,
                           ),
                           // redirect to old site
                           SizedBox(
@@ -243,7 +194,11 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
               height: height * 0.1,
               width: width,
               child: PageStatus(
+                key: isLandscape
+                    ? const Key('landscape_about_page_status')
+                    : const Key('portrait_about_page_status'),
                 level: _pageLevel,
+                isLandscape: isLandscape,
               ),
             )
           ],

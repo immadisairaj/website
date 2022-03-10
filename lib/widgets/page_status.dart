@@ -6,10 +6,17 @@ class PageStatus extends StatefulWidget {
   ///
   /// tell the [level] from 0 to 100
   /// to update the widget with appropriate visual
-  const PageStatus({Key? key, this.level = 0}) : super(key: key);
+  ///
+  /// tell if it [isLandscape] else, it will assume
+  /// as landscape always
+  const PageStatus({Key? key, this.level = 0, this.isLandscape = true})
+      : super(key: key);
 
   /// provide the percentage of the current scroll offset of the page
   final double level;
+
+  /// provide if the orientation is landscape or portrait
+  final bool isLandscape;
 
   @override
   State<PageStatus> createState() => _PageStatusState();
@@ -20,13 +27,9 @@ class _PageStatusState extends State<PageStatus> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    bool isLandscape = height < width;
-
     return RiveAnimation.asset(
       'assets/rive/neon-bike.riv',
-      artboard: isLandscape ? 'pc' : 'mobile',
+      artboard: widget.isLandscape ? 'pc' : 'mobile',
       fit: BoxFit.fitWidth,
       alignment: Alignment.bottomCenter,
       onInit: _onBoxStateInit,
