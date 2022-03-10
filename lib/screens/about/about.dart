@@ -142,7 +142,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Bio(
-                            controller: _scrollController,
                             screenHeight: height,
                             screenWidth: width,
                           ),
