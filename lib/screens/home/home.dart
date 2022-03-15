@@ -63,11 +63,6 @@ class _HomeState extends State<Home> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    // /// is true when the platform is on mobile
-    // bool isWebMobile = kIsWeb &&
-    //     (defaultTargetPlatform == TargetPlatform.iOS ||
-    //         defaultTargetPlatform == TargetPlatform.android);
-
     return Scaffold(
       backgroundColor: const Color(0xFF194D54),
       body: Center(

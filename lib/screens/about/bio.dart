@@ -85,7 +85,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
             5.5 * firstContentHeight / 9);
 
     _profileImageController = AnimationController(
-        duration: const Duration(milliseconds: 500), vsync: this);
+        duration: const Duration(milliseconds: 300), vsync: this);
     _profileImageAnimation =
         RelativeRectTween(begin: initialPosition, end: finalPosition)
             .animate(_profileImageController);
@@ -100,7 +100,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     RelativeRect finalPosition = _profileImageOutsidePosition;
 
     _profileImageController = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this);
+        duration: const Duration(milliseconds: 300), vsync: this);
     _profileImageAnimation =
         RelativeRectTween(begin: initialPosition, end: finalPosition)
             .animate(_profileImageController);
@@ -131,7 +131,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
             10, 3.5 * firstContentHeight / 9, 10, 0.5 * firstContentHeight / 9);
 
     _bioTextController = AnimationController(
-        duration: const Duration(milliseconds: 500), vsync: this);
+        duration: const Duration(milliseconds: 300), vsync: this);
     _bioTextAnimation =
         RelativeRectTween(begin: initialPosition, end: finalPosition)
             .animate(_bioTextController);
@@ -146,7 +146,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     RelativeRect finalPosition = _bioTextOutsidePosition;
 
     _bioTextController = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this);
+        duration: const Duration(milliseconds: 300), vsync: this);
     _bioTextAnimation =
         RelativeRectTween(begin: initialPosition, end: finalPosition)
             .animate(_bioTextController);
@@ -165,10 +165,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     return VisibilityDetector(
       key: const Key('bio'),
       onVisibilityChanged: (info) {
-        bool newIsVisible = false;
-        if (info.visibleFraction > 0.5) {
-          newIsVisible = true;
-        }
+        bool newIsVisible = info.visibleFraction > 0.5;
         if (newIsVisible != _isVisible) {
           if (mounted) {
             setState(() {

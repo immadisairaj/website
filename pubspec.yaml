@@ -41,7 +41,6 @@ dependencies:
   url_launcher: ^6.0.20
   rive: ^0.8.1 # animations
   google_fonts: ^2.3.1 # google fonts
-  animated_background: ^2.0.0 # background animations
   visibility_detector: ^0.2.2 # check if widget is visible
 
 dev_dependencies:

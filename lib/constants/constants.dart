@@ -10,12 +10,14 @@ class AppConstants {
 
   // Skills
 
-  /// programming languages
-  static const List<String> techStack = [
-    'Flutter',
-    'Dart',
-    'Java',
-    'Angular',
-    'React Native',
-  ];
+  /// frameworks
+  static const String frameworks = 'Flutter • '
+      'Angular • '
+      'React Native';
+
+  /// tools
+  static const String tools = 'Git • '
+      'GitHub • '
+      'VS Code • '
+      'Adobe Premiere Pro';
 }
