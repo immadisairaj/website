@@ -5,7 +5,9 @@ import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/constants/constants.dart';
 import 'package:website/screens/about/bio.dart';
+import 'package:website/screens/about/projects.dart';
 import 'package:website/widgets/page_status.dart';
+import 'package:website/widgets/rnn_youtube.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -69,7 +71,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
       'assets/rive/s-logo-rotation.riv',
       fit: BoxFit.fitHeight,
     );
-    double contentWidth = width * 0.8;
+    // double contentWidth = width * 0.8;
 
     return Scaffold(
       backgroundColor: const Color(0xFF194D54),
@@ -257,6 +259,38 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                           ],
                         ),
                         const SizedBox(height: 20),
+                        const Projects(),
+                        // non-technical skills
+                        const SizedBox(height: 50),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                'Others',
+                                style: GoogleFonts.rubik(
+                                  color: Colors.white,
+                                  fontSize:
+                                      isLandscape ? width * 0.03 : width * 0.05,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 10,
+                              width: width * 0.3 - 5,
+                              decoration: const BoxDecoration(
+                                color: Colors.cyan,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(5),
+                                  bottomLeft: Radius.circular(5),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        const RNNYoutube(),
                         // Text(
                         //   AppConstants.frameworks,
                         //   style: GoogleFonts.rubik(

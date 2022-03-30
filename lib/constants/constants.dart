@@ -1,3 +1,5 @@
+import 'package:website/classes/project_class.dart';
+
 class AppConstants {
   /// Bio of the user
   static const String bio =
@@ -20,4 +22,75 @@ class AppConstants {
       'GitHub • '
       'VS Code • '
       'Adobe Premiere Pro';
+
+  // projects
+  static const List<Project> projects = [
+    Project(
+      title: 'Arrow Pad',
+      subTitle: 'Feb 2022',
+      description: 'A flutter pub package which is a circular pad with 4 '
+          'arrows which has a functionality of 4 buttons.',
+      imagePath: 'assets/projects/arrow-pad.png',
+      link: 'https://pub.dev/packages/arrow_pad',
+    ),
+    Project(
+      title: 'Sai Voice',
+      subTitle: 'Apr 2021',
+      description: 'A radio player mobile application which streams audio from'
+          ' Radio Sai Global Harmony.',
+      imagePath: 'assets/projects/sai-voice.png',
+      link: 'https://immadisairaj.github.io/radiosai/',
+    ),
+    Project(
+      title: 'Carousel Portfolio Template',
+      subTitle: 'Jun 2020',
+      description: 'A web application template built using Flutter Framework.'
+          ' The application allows people to have an online presence with '
+          'their own personal website with which they can demonstrate their '
+          'skills and projects. It can be used by anyone by just editing a '
+          'single file from the project and building it.',
+      imagePath: 'assets/projects/carousel-portfolio.png',
+      link: 'https://github.com/immadisairaj/CarouselPortfolio',
+    ),
+    Project(
+      title: 'Distributed Group Chat System',
+      subTitle: 'Mar 2020',
+      description: 'A Terminal based Distributed Group Chat System. '
+          'The application is built using Java with the help of Remote Method '
+          'Invocation(RMI). The application is to be run from different '
+          'terminals across the same Local Area Network.',
+      imagePath: 'assets/projects/distributed-group-chat.png',
+      link: 'https://github.com/immadisairaj/distributedGroupChatSystem',
+    ),
+    Project(
+      title: 'Harry Potter',
+      subTitle: 'Aug 2019',
+      description: 'A cross-platform mobile application that can '
+          'be run on both iOS and Android, built using Flutter Framework. '
+          'It is built for the fans of Harry Potter to test their luck on the '
+          'sorting hat and also know the different characters and different '
+          'spells from Harry Potter. The data is fetched using Potter API.',
+      imagePath: 'assets/projects/harry-potter.jpg',
+      link: 'https://github.com/immadisairaj/harry_potter',
+    ),
+    Project(
+      title: 'Codeforces App',
+      subTitle: 'Apr 2019',
+      description: 'A native Android Application built using Java. '
+          'The application helps people to view details and recent '
+          'problem submission of a Codeforces user.',
+      imagePath: 'assets/projects/codeforces-app.jpeg',
+      link: 'https://github.com/immadisairaj/CodeforcesApp',
+    ),
+    Project(
+      title: 'Quiz',
+      subTitle: 'Dec 2018',
+      description: 'A native Android Application built using Java. '
+          'The application can be used to test a person\'s knowledge in a '
+          'particular category or overall category and learn from it.'
+          ' It fetches the data from an open-source API named Open Trivia.',
+      imagePath: 'assets/projects/quiz.jpg',
+      link: 'https://github.com/immadisairaj/Quiz',
+    ),
+  ];
 }
