@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       // remove debug checker
       debugShowCheckedModeBanner: false,
-      title: 'immadisairaj',
+      title: 'Sai Rajendra Immadi',
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),

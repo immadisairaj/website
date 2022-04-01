@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:website/constants/constants.dart';
 import 'package:website/screens/about/bio.dart';
 import 'package:website/screens/about/projects.dart';
+import 'package:website/screens/home/social_icons_about.dart';
 import 'package:website/widgets/page_status.dart';
 import 'package:website/widgets/rnn_youtube.dart';
 
@@ -27,6 +28,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
   /// controller that drives logo scale animation when in landscape
   late AnimationController _logoAnimationController;
   late Animation<double> _logoScale;
+
   @override
   void initState() {
     super.initState();
@@ -92,20 +94,49 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   floating: true,
                   stretch: isLandscape ? false : true,
                   actions: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Tooltip(
-                        message: 'Resume',
-                        child: IconButton(
-                          icon: const Icon(
-                            CupertinoIcons.doc,
-                            color: Colors.white,
+                    isLandscape
+                        ? Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                onTap: () => _launchURL('/resume.pdf',
+                                    webOnlyWindowName: '_self'),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      CupertinoIcons.doc,
+                                      color: Colors.white,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 8.0),
+                                      child: Text(
+                                        'Resume',
+                                        style: GoogleFonts.rubik(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Tooltip(
+                              message: 'Resume',
+                              child: IconButton(
+                                icon: const Icon(
+                                  CupertinoIcons.doc,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () => _launchURL('/resume.pdf',
+                                    webOnlyWindowName: '_self'),
+                              ),
+                            ),
                           ),
-                          onPressed: () => _launchURL('/resume.pdf',
-                              webOnlyWindowName: '_self'),
-                        ),
-                      ),
-                    ),
                   ],
                   leading: isLandscape
                       ? Padding(
@@ -291,49 +322,72 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         ),
                         const SizedBox(height: 20),
                         const RNNYoutube(),
-                        // Text(
-                        //   AppConstants.frameworks,
-                        //   style: GoogleFonts.rubik(
-                        //     color: Colors.white70,
-                        //     fontSize: isLandscape ? width * 0.02 : width * 0.04,
-                        //   ),
-                        // ),
-                        // redirect to old site
-                        SizedBox(
-                          height: height,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Site Under Construction..',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      'Please visit',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: ElevatedButton(
-                                        onPressed: () => _launchURL(
-                                            'https://immadisairaj.github.io/CarouselPortfolio'),
-                                        child: const Text('here'),
-                                      ),
-                                    ),
-                                    const Text(
-                                      'for previous site.',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                        const SizedBox(height: 100),
+                        Text(
+                          'Reach out to me at',
+                          style: GoogleFonts.rubik(
+                            color: Colors.white,
+                            fontSize:
+                                isLandscape ? width * 0.015 : width * 0.035,
                           ),
                         ),
+                        const SizedBox(height: 5),
+                        const SocialIconsAbout(),
+                        const SizedBox(height: 25),
+                        Text(
+                          'Built with Flutter',
+                          style: GoogleFonts.rubik(
+                            color: Colors.white70,
+                            fontSize: isLandscape ? width * 0.01 : width * 0.03,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          'Made with ❤️ by Sai Rajendra Immadi',
+                          style: GoogleFonts.rubik(
+                            color: Colors.white70,
+                            fontSize: isLandscape ? width * 0.02 : width * 0.04,
+                          ),
+                        ),
+                        SizedBox(
+                          height: isLandscape ? height * 0.13 : height * 0.09,
+                        ),
+                        // // redirect to old site
+                        // SizedBox(
+                        //   height: height,
+                        //   child: Center(
+                        //     child: Column(
+                        //       mainAxisAlignment: MainAxisAlignment.center,
+                        //       children: [
+                        //         const Text(
+                        //           'Site Under Construction..',
+                        //           style: TextStyle(color: Colors.white),
+                        //         ),
+                        //         Row(
+                        //           mainAxisAlignment: MainAxisAlignment.center,
+                        //           children: [
+                        //             const Text(
+                        //               'Please visit',
+                        //               style: TextStyle(color: Colors.white),
+                        //             ),
+                        //             Padding(
+                        //               padding: const EdgeInsets.all(8.0),
+                        //               child: ElevatedButton(
+                        //                 onPressed: () => _launchURL(
+                        //                     'https://immadisairaj.github.io/CarouselPortfolio'),
+                        //                 child: const Text('here'),
+                        //               ),
+                        //             ),
+                        //             const Text(
+                        //               'for previous site.',
+                        //               style: TextStyle(color: Colors.white),
+                        //             ),
+                        //           ],
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
