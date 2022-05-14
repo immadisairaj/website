@@ -189,5 +189,5 @@ class _SocialBoxAnimationState extends State<SocialBoxAnimation> {
 }
 
 void _launchURL(String url) async {
-  if (!await launch(url)) throw 'Could not launch $url';
+  if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
 }

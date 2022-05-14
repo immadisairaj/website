@@ -251,5 +251,5 @@ class _HomeState extends State<Home> {
 }
 
 void _launchURL(String url) async {
-  if (!await launch(url)) throw 'Could not launch $url';
+  if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
 }

@@ -120,5 +120,5 @@ class _ProjectWidgetState extends State<ProjectWidget>
 }
 
 void _launchURL(String url) async {
-  if (!await launch(url)) throw 'Could not launch $url';
+  if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
 }

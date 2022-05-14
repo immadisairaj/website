@@ -414,7 +414,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
 }
 
 void _launchURL(String url, {String? webOnlyWindowName}) async {
-  if (!await launch(url, webOnlyWindowName: webOnlyWindowName)) {
+  if (!await launchUrl(Uri.parse(url), webOnlyWindowName: webOnlyWindowName)) {
     throw 'Could not launch $url';
   }
 }
