@@ -80,7 +80,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
       body: Stack(
         children: [
           Scrollbar(
-            isAlwaysShown: true,
+            thumbVisibility: true,
             controller: _scrollController,
             child: CustomScrollView(
               physics: const BouncingScrollPhysics(
