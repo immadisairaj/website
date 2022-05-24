@@ -28,7 +28,7 @@ class SocialIconsAbout extends StatelessWidget {
         ),
         SocialIconCard(
           icon: Icons.mail_outline,
-          link: 'mailto:immadirajendra.sai@gmail.com',
+          link: 'mailto:mail+website@immadisairaj.dev',
         ),
       ],
     );

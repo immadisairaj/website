@@ -59,7 +59,7 @@ class _SocialIconsState extends State<SocialIcons> {
             height: height,
             width: width,
             isWebMobile: isWebMobile,
-            link: 'mailto:immadirajendra.sai@gmail.com',
+            link: 'mailto:mail+website@immadisairaj.dev',
           ),
         ],
       ),
