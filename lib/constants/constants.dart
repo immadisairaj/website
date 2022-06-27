@@ -26,10 +26,17 @@ class AppConstants {
   // projects
   static const List<Project> projects = [
     Project(
+      title: 'Timer Game',
+      subTitle: 'June 2022',
+      description: 'A small game to test the reflexes of the player.',
+      imagePath: 'assets/projects/timer-game.png',
+      link: 'https://immadisairaj.github.io/timer_game',
+    ),
+    Project(
       title: 'Random Pick',
       subTitle: 'May 2022',
       description:
-          'An application which decides/picks an item from ' 'the given pool',
+          'An application which decides/picks an item from the given pool',
       imagePath: 'assets/projects/random-pick.png',
       link: 'https://immadisairaj.github.io/random_pick',
     ),
