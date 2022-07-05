@@ -26,6 +26,14 @@ class AppConstants {
   // projects
   static const List<Project> projects = [
     Project(
+      title: 'Digital LCD Number',
+      subTitle: 'July 2022',
+      description:
+          'An automatic sizer digital single-digit number with LCD style widget.',
+      imagePath: 'assets/projects/digital-lcd-number.png',
+      link: 'https://pub.dev/packages/digital_lcd_number',
+    ),
+    Project(
       title: 'Timer Game',
       subTitle: 'June 2022',
       description: 'A small game to test the reflexes of the player.',
