@@ -26,10 +26,21 @@ class AppConstants {
   // projects
   static const List<Project> projects = [
     Project(
+      title: 'Sai Chits',
+      subTitle: 'August 2022',
+      description: 'An appliation that is similar to swami chits '
+          'used by students of Sri Sathya Sai Baba college which is '
+          'digitalized to make it easier and accessible for all the devotees. '
+          'This application supports in many different platforms '
+          'thanks to Flutter',
+      imagePath: 'assets/projects/sai-chits.png',
+      link: 'https://immadisairaj.github.io/sai_chits',
+    ),
+    Project(
       title: 'Digital LCD Number',
       subTitle: 'July 2022',
-      description:
-          'An automatic sizer digital single-digit number with LCD style widget.',
+      description: 'An automatic sizer digital single-digit number with '
+          'LCD style widget.',
       imagePath: 'assets/projects/digital-lcd-number.png',
       link: 'https://pub.dev/packages/digital_lcd_number',
     ),
