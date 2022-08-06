@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      my_secret: ${{secrets.ACCESS_TOKEN}}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - run: flutter clean
+      - run: flutter pub get
+      - run: flutter build web --release
+
+      # Web deploy now is contained in build/web directory
+      - run: |
+          cd build
+          mkdir web-deploy
+          cd web-deploy
+          git config --global user.email immadirajendra.sai@gmail.com
+          git config --global user.name immadisairaj
+          git init
+          # the repository to push the deploy into
+          git remote add origin https://${{secrets.ACCESS_TOKEN}}@github.com/immadisairaj/immadisairaj.github.io.git
+          git fetch origin main
+          git switch main
+          # copy the build that is there in ROOT/build/web into ROOT/build/web-deploy
+          cp -R ../web/* .
+          git status
+          git add .
+          # add commit of the previous commit from main
+          echo ""
+          echo "Committing to main: ${{ github.event.head_commit.message }}"
+          echo ""
+          git commit -m "${{ github.event.head_commit.message }}"
+          git push origin main
