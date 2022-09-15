@@ -92,7 +92,7 @@ class AppConstants {
           'skills and projects. It can be used by anyone by just editing a '
           'single file from the project and building it.',
       imagePath: 'assets/projects/carousel-portfolio.png',
-      link: 'https://github.com/immadisairaj/CarouselPortfolio',
+      link: 'https://immadisairaj.github.io/CarouselPortfolio',
     ),
     Project(
       title: 'Distributed Group Chat System',
@@ -109,9 +109,9 @@ class AppConstants {
       subTitle: 'Oct 2019',
       description: 'An application which shows the list of extinct species '
           'and the reasons for their extinction. It uses ICUN API and '
-          'shows the data present there.',
+          'shows the data present there. It is built using Flutter Framework.',
       imagePath: 'assets/projects/extinction-species.png',
-      link: 'https://github.com/immadisairaj/extinction_species',
+      link: 'https://immadisairaj.github.io/extinction_species',
     ),
     Project(
       title: 'Harry Potter',
