@@ -105,6 +105,15 @@ class AppConstants {
       link: 'https://github.com/immadisairaj/distributedGroupChatSystem',
     ),
     Project(
+      title: 'Extinction Species',
+      subTitle: 'Oct 2019',
+      description: 'An application which shows the list of extinct species '
+          'and the reasons for their extinction. It uses ICUN API and '
+          'shows the data present there.',
+      imagePath: 'assets/projects/extinction-species.png',
+      link: 'https://github.com/immadisairaj/extinction_species',
+    ),
+    Project(
       title: 'Harry Potter',
       subTitle: 'Aug 2019',
       description: 'A cross-platform mobile application that can '
