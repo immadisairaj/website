@@ -26,6 +26,14 @@ class AppConstants {
   // projects
   static const List<Project> projects = [
     Project(
+      title: 'Prides',
+      subTitle: 'March 2023',
+      description: 'A package that helps in creating '
+          'custom Slides and Presenting them.',
+      imagePath: 'assets/projects/prides.png',
+      link: 'https://pub.dev/packages/prides',
+    ),
+    Project(
       title: 'Sai Chits',
       subTitle: 'August 2022',
       description: 'An appliation that is similar to swami chits '
