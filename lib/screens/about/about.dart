@@ -343,7 +343,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          'Made with ❤️ by Sai Rajendra Immadi',
+                          'Made with ${String.fromCharCode(0x1F499)} by Sai Rajendra Immadi',
                           style: GoogleFonts.rubik(
                             color: Colors.white70,
                             fontSize: isLandscape ? width * 0.02 : width * 0.04,

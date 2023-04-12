@@ -28,7 +28,7 @@ class AppConstants {
     Project(
       title: 'Prides',
       subTitle: 'March 2023',
-      description: 'A package that helps in creating '
+      description: 'A flutter pub package that helps in creating '
           'custom Slides and Presenting them.',
       imagePath: 'assets/projects/prides.png',
       link: 'https://pub.dev/packages/prides',
