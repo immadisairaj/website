@@ -199,7 +199,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
                     child: Text(
                       AppConstants.bio,
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.rubik(
+                      style: TextStyle(
                         color: Colors.white,
                         letterSpacing: 2,
                         wordSpacing: 2,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RNNYoutube extends StatefulWidget {
@@ -100,7 +99,7 @@ class _RNNYoutubeState extends State<RNNYoutube> with TickerProviderStateMixin {
         child: Text(
           'I edit videos at\nRadha Nruthya Nilayam',
           textAlign: TextAlign.center,
-          style: GoogleFonts.rubik(
+          style: TextStyle(
             fontSize: isLandscape ? width * 0.03 : height * 0.023,
             fontWeight: FontWeight.w600,
           ),

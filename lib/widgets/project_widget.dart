@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/classes/project_class.dart';
 
@@ -73,20 +72,17 @@ class _ProjectWidgetState extends State<ProjectWidget>
                       Text(
                         widget.project.title,
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.rubik(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
                         height: 3,
                       ),
                       Text(
                         widget.project.subTitle,
-                        style: GoogleFonts.rubik(
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
+                        style: Theme.of(context).textTheme.labelLarge,
                       ),
                       const SizedBox(
                         height: 8,
@@ -102,9 +98,7 @@ class _ProjectWidgetState extends State<ProjectWidget>
                         child: Text(
                           widget.project.description,
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.rubik(
-                            fontSize: 14,
-                          ),
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ),
                     ],

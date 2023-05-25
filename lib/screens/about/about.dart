@@ -93,6 +93,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   expandedHeight: isLandscape ? null : height * 0.3,
                   floating: true,
                   stretch: isLandscape ? false : true,
+                  backgroundColor: Colors.cyan,
                   actions: [
                     isLandscape
                         ? Padding(
@@ -102,18 +103,18 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () => _launchURL('/resume.pdf',
                                     webOnlyWindowName: '_self'),
-                                child: Row(
+                                child: const Row(
                                   children: [
-                                    const Icon(
+                                    Icon(
                                       CupertinoIcons.doc,
                                       color: Colors.white,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 8.0),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 8.0),
                                       child: Text(
                                         'Resume',
-                                        style: GoogleFonts.rubik(
+                                        style: TextStyle(
                                           color: Colors.white,
                                         ),
                                       ),
@@ -207,7 +208,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               padding: const EdgeInsets.all(10),
                               child: Text(
                                 'Frameworks',
-                                style: GoogleFonts.rubik(
+                                style: TextStyle(
                                   color: Colors.white,
                                   fontSize:
                                       isLandscape ? width * 0.03 : width * 0.05,
@@ -219,7 +220,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         const SizedBox(height: 20),
                         Text(
                           AppConstants.frameworks,
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                             color: Colors.white70,
                             fontSize: isLandscape ? width * 0.02 : width * 0.04,
                           ),
@@ -233,7 +234,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               padding: const EdgeInsets.all(10),
                               child: Text(
                                 'Tools',
-                                style: GoogleFonts.rubik(
+                                style: TextStyle(
                                   color: Colors.white,
                                   fontSize:
                                       isLandscape ? width * 0.03 : width * 0.05,
@@ -256,7 +257,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         const SizedBox(height: 20),
                         Text(
                           AppConstants.tools,
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                             color: Colors.white70,
                             fontSize: isLandscape ? width * 0.02 : width * 0.04,
                           ),
@@ -280,7 +281,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               padding: const EdgeInsets.all(10),
                               child: Text(
                                 'Projects',
-                                style: GoogleFonts.rubik(
+                                style: TextStyle(
                                   color: Colors.white,
                                   fontSize:
                                       isLandscape ? width * 0.03 : width * 0.05,
@@ -300,7 +301,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               padding: const EdgeInsets.all(10),
                               child: Text(
                                 'Others',
-                                style: GoogleFonts.rubik(
+                                style: TextStyle(
                                   color: Colors.white,
                                   fontSize:
                                       isLandscape ? width * 0.03 : width * 0.05,
@@ -325,7 +326,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         const SizedBox(height: 100),
                         Text(
                           'Reach out to me at',
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize:
                                 isLandscape ? width * 0.015 : width * 0.035,
@@ -336,17 +337,28 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         const SizedBox(height: 25),
                         Text(
                           'Built with Flutter',
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                             color: Colors.white70,
                             fontSize: isLandscape ? width * 0.01 : width * 0.03,
                           ),
                         ),
                         const SizedBox(height: 5),
-                        Text(
-                          'Made with ${String.fromCharCode(0x1F499)} by Sai Rajendra Immadi',
-                          style: GoogleFonts.rubik(
-                            color: Colors.white70,
-                            fontSize: isLandscape ? width * 0.02 : width * 0.04,
+                        RichText(
+                          text: TextSpan(
+                            children: const [
+                              TextSpan(text: 'Made with '),
+                              TextSpan(
+                                text: '💙',
+                                style:
+                                    TextStyle(fontFamily: 'Noto Color Emoji'),
+                              ),
+                              TextSpan(text: ' by Sai Rajendra Immadi'),
+                            ],
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize:
+                                  isLandscape ? width * 0.02 : width * 0.04,
+                            ),
                           ),
                         ),
                         SizedBox(
