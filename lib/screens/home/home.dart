@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/screens/home/name.dart';
 import 'package:website/screens/home/social_icons.dart';
@@ -128,7 +127,7 @@ class _HomeState extends State<Home> {
                                 child: ElevatedButton(
                                   onPressed: () => widget.onAboutPress(),
                                   style: ElevatedButton.styleFrom(
-                                    primary: const Color(0xFFE39356),
+                                    backgroundColor: const Color(0xFFE39356),
                                     shadowColor: Colors.black,
                                     elevation: 8,
                                   ),
@@ -153,7 +152,7 @@ class _HomeState extends State<Home> {
                                   onPressed: () => _launchURL(
                                       'https://immadisairaj.github.io/blog'),
                                   style: ElevatedButton.styleFrom(
-                                    primary: const Color(0xFFE39356),
+                                    backgroundColor: const Color(0xFFE39356),
                                     shadowColor: Colors.black,
                                     elevation: 8,
                                   ),
