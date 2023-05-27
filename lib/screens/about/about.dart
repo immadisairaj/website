@@ -14,7 +14,7 @@ class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
 
   @override
-  _AboutState createState() => _AboutState();
+  State<About> createState() => _AboutState();
 }
 
 class _AboutState extends State<About> with TickerProviderStateMixin {

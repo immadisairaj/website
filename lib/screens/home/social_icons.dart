@@ -7,7 +7,7 @@ class SocialIcons extends StatefulWidget {
   const SocialIcons({Key? key}) : super(key: key);
 
   @override
-  _SocialIconsState createState() => _SocialIconsState();
+  State<SocialIcons> createState() => _SocialIconsState();
 }
 
 class _SocialIconsState extends State<SocialIcons> {

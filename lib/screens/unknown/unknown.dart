@@ -5,12 +5,12 @@ class UnknownScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF194D54),
+    return const Scaffold(
+      backgroundColor: Color(0xFF194D54),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               '404',
               style: TextStyle(

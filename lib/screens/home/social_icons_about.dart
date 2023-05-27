@@ -7,9 +7,9 @@ class SocialIconsAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         SocialIconCard(
           icon: FontAwesomeIcons.github,
           link: 'https://github.com/immadisairaj',

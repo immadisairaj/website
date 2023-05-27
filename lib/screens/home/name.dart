@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 
 class Name extends StatefulWidget {
   const Name({Key? key}) : super(key: key);
 
   @override
-  _NameState createState() => _NameState();
+  State<Name> createState() => _NameState();
 }
 
 class _NameState extends State<Name> {
