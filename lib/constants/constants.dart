@@ -152,4 +152,23 @@ class AppConstants {
       link: 'https://github.com/immadisairaj/Quiz',
     ),
   ];
+
+  // other links
+  static const List<Project> otherLinks = [
+    Project(
+      title: 'Talks',
+      description: 'I have given',
+      link: 'https://immadisairaj.dev/talks',
+    ),
+    Project(
+      title: 'Experiments',
+      description: 'Something Flutter',
+      link: 'https://github.com/immadisairaj/flutter-experiments',
+    ),
+    Project(
+      title: 'Gyro Maze',
+      description: 'Something with Sensors',
+      link: 'https://github.com/immadisairaj/gyro_maze',
+    ),
+  ];
 }

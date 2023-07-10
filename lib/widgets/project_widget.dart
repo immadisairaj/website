@@ -25,7 +25,9 @@ class _ProjectWidgetState extends State<ProjectWidget>
   @override
   void didChangeDependencies() {
     // precache image when going to next page (about)
-    precacheImage(AssetImage(widget.project.imagePath), context);
+    if (widget.project.imagePath != null) {
+      precacheImage(AssetImage(widget.project.imagePath!), context);
+    }
     super.didChangeDependencies();
   }
 
@@ -80,16 +82,19 @@ class _ProjectWidgetState extends State<ProjectWidget>
                       const SizedBox(
                         height: 3,
                       ),
-                      Text(
-                        widget.project.subTitle,
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Image(
-                        image: AssetImage(widget.project.imagePath),
-                      ),
+                      if (widget.project.subTitle != null)
+                        Text(
+                          widget.project.subTitle!,
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
+                      if (widget.project.subTitle != null)
+                        const SizedBox(
+                          height: 8,
+                        ),
+                      if (widget.project.imagePath != null)
+                        Image(
+                          image: AssetImage(widget.project.imagePath!),
+                        ),
                       const SizedBox(
                         height: 5,
                       ),

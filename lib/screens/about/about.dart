@@ -7,6 +7,7 @@ import 'package:website/constants/constants.dart';
 import 'package:website/screens/about/bio.dart';
 import 'package:website/screens/about/projects.dart';
 import 'package:website/screens/home/social_icons_about.dart';
+import 'package:website/widgets/other_links.dart';
 import 'package:website/widgets/page_status.dart';
 import 'package:website/widgets/rnn_youtube.dart';
 
@@ -292,7 +293,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         ),
                         const SizedBox(height: 20),
                         const Projects(),
-                        // non-technical skills
                         const SizedBox(height: 50),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -322,6 +322,10 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                           ],
                         ),
                         const SizedBox(height: 20),
+                        // talks and experiments
+                        const OtherLinks(),
+                        const SizedBox(height: 20),
+                        // non-technical skills
                         const RNNYoutube(),
                         const SizedBox(height: 100),
                         Text(
