@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
                                 padding: EdgeInsets.only(right: width * 0.08),
                                 child: ElevatedButton(
                                   onPressed: () => _launchURL(
-                                      'https://immadisairaj.github.io/blog'),
+                                      'https://immadisairaj.dev/blog'),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xFFE39356),
                                     shadowColor: Colors.black,

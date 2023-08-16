@@ -368,42 +368,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         SizedBox(
                           height: isLandscape ? height * 0.13 : height * 0.09,
                         ),
-                        // // redirect to old site
-                        // SizedBox(
-                        //   height: height,
-                        //   child: Center(
-                        //     child: Column(
-                        //       mainAxisAlignment: MainAxisAlignment.center,
-                        //       children: [
-                        //         const Text(
-                        //           'Site Under Construction..',
-                        //           style: TextStyle(color: Colors.white),
-                        //         ),
-                        //         Row(
-                        //           mainAxisAlignment: MainAxisAlignment.center,
-                        //           children: [
-                        //             const Text(
-                        //               'Please visit',
-                        //               style: TextStyle(color: Colors.white),
-                        //             ),
-                        //             Padding(
-                        //               padding: const EdgeInsets.all(8.0),
-                        //               child: ElevatedButton(
-                        //                 onPressed: () => _launchURL(
-                        //                     'https://immadisairaj.github.io/CarouselPortfolio'),
-                        //                 child: const Text('here'),
-                        //               ),
-                        //             ),
-                        //             const Text(
-                        //               'for previous site.',
-                        //               style: TextStyle(color: Colors.white),
-                        //             ),
-                        //           ],
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),

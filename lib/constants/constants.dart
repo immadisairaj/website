@@ -42,7 +42,7 @@ class AppConstants {
           'This application supports in many different platforms '
           'thanks to Flutter',
       imagePath: 'assets/projects/sai-chits.png',
-      link: 'https://immadisairaj.github.io/sai_chits',
+      link: 'https://immadisairaj.dev/sai_chits',
     ),
     Project(
       title: 'Digital LCD Number',
@@ -57,7 +57,7 @@ class AppConstants {
       subTitle: 'June 2022',
       description: 'A small game to test the reflexes of the player.',
       imagePath: 'assets/projects/timer-game.png',
-      link: 'https://immadisairaj.github.io/timer_game',
+      link: 'https://timergame.immadisairaj.dev',
     ),
     Project(
       title: 'Random Pick',
@@ -65,7 +65,7 @@ class AppConstants {
       description:
           'An application which decides/picks an item from the given pool',
       imagePath: 'assets/projects/random-pick.png',
-      link: 'https://immadisairaj.github.io/random_pick',
+      link: 'https://immadisairaj.dev/random_pick',
     ),
     Project(
       title: 'Website',
@@ -73,7 +73,7 @@ class AppConstants {
       description: 'A flutter web application for my portfolio'
           ' which mostly includes animations',
       imagePath: 'assets/projects/website.png',
-      link: 'https://immadisairaj.github.io',
+      link: 'https://immadisairaj.dev',
     ),
     Project(
       title: 'Arrow Pad',
@@ -89,7 +89,7 @@ class AppConstants {
       description: 'A radio player mobile application which streams audio from'
           ' Radio Sai Global Harmony.',
       imagePath: 'assets/projects/sai-voice.png',
-      link: 'https://immadisairaj.github.io/radiosai/',
+      link: 'https://immadisairaj.dev/radiosai',
     ),
     Project(
       title: 'Carousel Portfolio Template',
@@ -100,7 +100,7 @@ class AppConstants {
           'skills and projects. It can be used by anyone by just editing a '
           'single file from the project and building it.',
       imagePath: 'assets/projects/carousel-portfolio.png',
-      link: 'https://immadisairaj.github.io/CarouselPortfolio',
+      link: 'https://v1.immadisairaj.dev',
     ),
     Project(
       title: 'Distributed Group Chat System',
@@ -119,7 +119,7 @@ class AppConstants {
           'and the reasons for their extinction. It uses ICUN API and '
           'shows the data present there. It is built using Flutter Framework.',
       imagePath: 'assets/projects/extinction-species.png',
-      link: 'https://immadisairaj.github.io/extinction_species',
+      link: 'https://immadisairaj.dev/extinction_species',
     ),
     Project(
       title: 'Harry Potter',
@@ -158,7 +158,7 @@ class AppConstants {
     Project(
       title: 'Talks',
       description: 'I have given',
-      link: 'https://immadisairaj.dev/talks',
+      link: 'https://talks.immadisairaj.dev',
     ),
     Project(
       title: 'Experiments',
