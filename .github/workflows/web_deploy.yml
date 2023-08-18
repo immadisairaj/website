@@ -18,7 +18,7 @@ jobs:
 
       - run: flutter clean
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --no-tree-shake-icons
 
       # Web deploy now is contained in build/web directory
       - run: |
