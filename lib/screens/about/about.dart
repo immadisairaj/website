@@ -347,8 +347,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                           ),
                         ),
                         const SizedBox(height: 5),
-                        RichText(
-                          text: TextSpan(
+                        Text.rich(
+                          TextSpan(
                             children: const [
                               TextSpan(text: 'Made with '),
                               TextSpan(

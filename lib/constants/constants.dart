@@ -42,7 +42,7 @@ class AppConstants {
           'This application supports in many different platforms '
           'thanks to Flutter',
       imagePath: 'assets/projects/sai-chits.png',
-      link: 'https://immadisairaj.dev/sai_chits',
+      link: 'https://saichits.immadisairaj.dev',
     ),
     Project(
       title: 'Digital LCD Number',
@@ -65,7 +65,7 @@ class AppConstants {
       description:
           'An application which decides/picks an item from the given pool',
       imagePath: 'assets/projects/random-pick.png',
-      link: 'https://immadisairaj.dev/random_pick',
+      link: 'https://randompick.immadisairaj.dev',
     ),
     Project(
       title: 'Website',
@@ -89,7 +89,7 @@ class AppConstants {
       description: 'A radio player mobile application which streams audio from'
           ' Radio Sai Global Harmony.',
       imagePath: 'assets/projects/sai-voice.png',
-      link: 'https://immadisairaj.dev/radiosai',
+      link: 'https://radiosai.immadisairaj.dev',
     ),
     Project(
       title: 'Carousel Portfolio Template',
