@@ -26,6 +26,13 @@ class AppConstants {
   // projects
   static const List<Project> projects = [
     Project(
+      title: 'Curious Explorer Portfolio',
+      subTitle: 'September 2023',
+      description: 'A portfolio website built for my brother in flutter.',
+      imagePath: 'assets/projects/curious-explorer.png',
+      link: 'https://sivaratnakar.com',
+    ),
+    Project(
       title: 'Prides',
       subTitle: 'March 2023',
       description: 'A flutter pub package that helps in creating '
