@@ -5,7 +5,7 @@ class SiteRouteInformationParser extends RouteInformationParser<SiteRoutePath> {
   @override
   Future<SiteRoutePath> parseRouteInformation(
       RouteInformation routeInformation) async {
-    final uri = Uri.parse(routeInformation.location!);
+    final uri = routeInformation.uri;
     if (uri.pathSegments.isEmpty) {
       return SiteRoutePath.splash();
     } else if (uri.pathSegments.length == 1) {
@@ -21,20 +21,20 @@ class SiteRouteInformationParser extends RouteInformationParser<SiteRoutePath> {
   @override
   RouteInformation? restoreRouteInformation(configuration) {
     if (configuration.isUnknown) {
-      return const RouteInformation(
-        location: '/404',
+      return RouteInformation(
+        uri: Uri.parse('/404'),
       );
     } else if (configuration.isHomePage) {
-      return const RouteInformation(
-        location: '/home',
+      return RouteInformation(
+        uri: Uri.parse('/home'),
       );
     } else if (configuration.isAboutPage) {
-      return const RouteInformation(
-        location: '/about',
+      return RouteInformation(
+        uri: Uri.parse('/about'),
       );
     } else if (configuration.isSplashPage) {
-      return const RouteInformation(
-        location: '/',
+      return RouteInformation(
+        uri: Uri.parse('/'),
       );
     }
     return null;

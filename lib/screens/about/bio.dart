@@ -4,8 +4,7 @@ import 'package:website/constants/constants.dart';
 import 'package:website/widgets/profile_image.dart';
 
 class Bio extends StatefulWidget {
-  const Bio({Key? key, required this.screenHeight, required this.screenWidth})
-      : super(key: key);
+  const Bio({super.key, required this.screenHeight, required this.screenWidth});
 
   final double screenHeight;
   final double screenWidth;

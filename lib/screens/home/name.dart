@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 class Name extends StatefulWidget {
-  const Name({Key? key}) : super(key: key);
+  const Name({super.key});
 
   @override
   State<Name> createState() => _NameState();

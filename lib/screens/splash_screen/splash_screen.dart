@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key, required this.onHomeNav}) : super(key: key);
+  const SplashScreen({super.key, required this.onHomeNav});
 
   final VoidCallback onHomeNav;
 

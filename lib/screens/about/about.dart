@@ -12,7 +12,7 @@ import 'package:website/widgets/page_status.dart';
 import 'package:website/widgets/rnn_youtube.dart';
 
 class About extends StatefulWidget {
-  const About({Key? key}) : super(key: key);
+  const About({super.key});
 
   @override
   State<About> createState() => _AboutState();

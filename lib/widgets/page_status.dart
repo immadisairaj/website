@@ -9,8 +9,7 @@ class PageStatus extends StatefulWidget {
   ///
   /// tell if it [isLandscape] else, it will assume
   /// as landscape always
-  const PageStatus({Key? key, this.level = 0, this.isLandscape = true})
-      : super(key: key);
+  const PageStatus({super.key, this.level = 0, this.isLandscape = true});
 
   /// provide the percentage of the current scroll offset of the page
   final double level;

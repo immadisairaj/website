@@ -4,7 +4,7 @@ import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialIcons extends StatefulWidget {
-  const SocialIcons({Key? key}) : super(key: key);
+  const SocialIcons({super.key});
 
   @override
   State<SocialIcons> createState() => _SocialIconsState();
@@ -80,13 +80,13 @@ class _SocialIconsState extends State<SocialIcons> {
 /// uses "url_launcher" to launch the links
 class SocialBoxAnimation extends StatefulWidget {
   const SocialBoxAnimation({
-    Key? key,
+    super.key,
     required this.artBoard,
     required this.height,
     required this.width,
     required this.isWebMobile,
     required this.link,
-  }) : super(key: key);
+  });
 
   final String artBoard;
   final double height;

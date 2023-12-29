@@ -6,7 +6,7 @@ import 'package:website/screens/home/name.dart';
 import 'package:website/screens/home/social_icons.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key, required this.onAboutPress}) : super(key: key);
+  const Home({super.key, required this.onAboutPress});
 
   final VoidCallback onAboutPress;
 

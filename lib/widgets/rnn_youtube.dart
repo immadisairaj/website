@@ -3,8 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class RNNYoutube extends StatefulWidget {
   const RNNYoutube({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<RNNYoutube> createState() => _RNNYoutubeState();

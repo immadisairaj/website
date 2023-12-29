@@ -4,7 +4,7 @@ import 'package:website/constants/constants.dart';
 import 'package:website/widgets/project_widget.dart';
 
 class Projects extends StatelessWidget {
-  const Projects({Key? key}) : super(key: key);
+  const Projects({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -7,9 +7,9 @@ class ProjectWidget extends StatefulWidget {
   final Project project;
 
   const ProjectWidget({
-    Key? key,
+    super.key,
     required this.project,
-  }) : super(key: key);
+  });
 
   @override
   State<ProjectWidget> createState() => _ProjectWidgetState();

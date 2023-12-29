@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialIconsAbout extends StatelessWidget {
-  const SocialIconsAbout({Key? key}) : super(key: key);
+  const SocialIconsAbout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +37,10 @@ class SocialIconsAbout extends StatelessWidget {
 
 class SocialIconCard extends StatefulWidget {
   const SocialIconCard({
-    Key? key,
+    super.key,
     required this.icon,
     required this.link,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String link;
