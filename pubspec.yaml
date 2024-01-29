@@ -38,13 +38,13 @@ dependencies:
   cupertino_icons: ^1.0.6
 
   # packages
-  url_launcher: ^6.2.2
+  url_launcher: ^6.2.4
   rive: ^0.12.4 # animations
   google_fonts: ^6.1.0 # google fonts
-  visibility_detector: ^0.4.0 # check if widget is visible
+  visibility_detector: ^0.4.0+2 # check if widget is visible
   flutter_staggered_grid_view: ^0.7.0 # customize grid view
-  font_awesome_flutter: ^10.6.0 # for social icons
-  js: ^0.6.7 # for google analytics routing
+  font_awesome_flutter: ^10.7.0 # for social icons
+  js: ^0.7.0 # for google analytics routing
 
 dev_dependencies:
   flutter_test:
