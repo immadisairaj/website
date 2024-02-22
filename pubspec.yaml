@@ -38,7 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.6
 
   # packages
-  url_launcher: ^6.2.4
+  url_launcher: ^6.2.5
   rive: ^0.12.4 # animations
   google_fonts: ^6.1.0 # google fonts
   visibility_detector: ^0.4.0+2 # check if widget is visible
