@@ -1,5 +1,6 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
-import 'package:js/js.dart';
 import 'package:website/router/site_route_path.dart';
 import 'package:website/router/site_transition_delegate.dart';
 import 'package:website/screens/about/about.dart';

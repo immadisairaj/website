@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -35,16 +35,16 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
 
   # packages
-  url_launcher: ^6.2.5
-  rive: ^0.13.1 # animations
+  url_launcher: ^6.2.6
+  rive: ^0.13.4 # animations
   google_fonts: ^6.2.1 # google fonts
   visibility_detector: ^0.4.0+2 # check if widget is visible
   flutter_staggered_grid_view: ^0.7.0 # customize grid view
   font_awesome_flutter: ^10.7.0 # for social icons
-  js: ^0.7.1 # for google analytics routing
+  js_interop: ^0.0.1 # for google analytics routing
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +55,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.1
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
