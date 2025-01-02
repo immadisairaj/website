@@ -28,54 +28,51 @@ class SiteRouterDelegate extends RouterDelegate<SiteRoutePath>
 
   @override
   Widget build(BuildContext context) {
+    final List<Page<void>> pages = [
+      MaterialPage(
+        key: const ValueKey('Base'),
+        child: Container(),
+      ),
+      if (_show404)
+        const MaterialPage(
+            key: ValueKey('UnknownPage'), child: UnknownScreen()),
+      if (!_isHome && !_isAbout && !_show404)
+        MaterialPage(
+          key: const ValueKey('SplashPage'),
+          child: SplashScreen(
+            onHomeNav: () {
+              if (!_show404 && !_isHome && !_isAbout) {
+                _isHome = true;
+                _isAbout = false;
+                notifyListeners();
+              }
+            },
+          ),
+        ),
+      if (_isHome || _isAbout)
+        MaterialPage(
+          key: const ValueKey('HomePage'),
+          canPop: false,
+          child: Home(
+            onAboutPress: () {
+              _isHome = false;
+              _isAbout = true;
+              notifyListeners();
+            },
+          ),
+        ),
+      if (_isAbout)
+        const MaterialPage(key: ValueKey('AboutPage'), child: About()),
+    ];
+
     return Navigator(
       key: navigatorKey,
       transitionDelegate: _siteTransitionDelegate,
-      pages: [
-        MaterialPage(
-          key: const ValueKey('Base'),
-          child: Container(),
-        ),
-        if (_show404)
-          const MaterialPage(
-              key: ValueKey('UnknownPage'), child: UnknownScreen()),
-        if (!_isHome && !_isAbout && !_show404)
-          MaterialPage(
-            key: const ValueKey('SplashPage'),
-            child: SplashScreen(
-              onHomeNav: () {
-                if (!_show404 && !_isHome && !_isAbout) {
-                  _isHome = true;
-                  _isAbout = false;
-                  notifyListeners();
-                }
-              },
-            ),
-          ),
-        if (_isHome || _isAbout)
-          MaterialPage(
-            key: const ValueKey('HomePage'),
-            child: Home(
-              onAboutPress: () {
-                _isHome = false;
-                _isAbout = true;
-                notifyListeners();
-              },
-            ),
-          ),
-        if (_isAbout)
-          const MaterialPage(key: ValueKey('AboutPage'), child: About()),
-      ],
-      onPopPage: (route, result) {
-        if (!route.didPop(result)) {
-          return false;
-        }
-
+      pages: pages,
+      onDidRemovePage: (page) {
         _isHome = true;
         _isAbout = false;
-        notifyListeners();
-
-        return true;
+        // notifyListeners();
       },
     );
   }
