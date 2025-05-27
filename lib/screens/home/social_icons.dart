@@ -17,7 +17,8 @@ class _SocialIconsState extends State<SocialIcons> {
     double width = MediaQuery.of(context).size.width;
 
     /// is true when the platform is on mobile
-    bool isWebMobile = kIsWeb &&
+    bool isWebMobile =
+        kIsWeb &&
         (defaultTargetPlatform == TargetPlatform.iOS ||
             defaultTargetPlatform == TargetPlatform.android);
 
@@ -59,7 +60,7 @@ class _SocialIconsState extends State<SocialIcons> {
             height: height,
             width: width,
             isWebMobile: isWebMobile,
-            link: 'mailto:mail+website@immadisairaj.dev',
+            link: 'mailto:mail@immadisairaj.dev',
           ),
         ],
       ),

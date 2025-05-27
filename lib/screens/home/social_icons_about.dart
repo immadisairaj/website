@@ -28,7 +28,7 @@ class SocialIconsAbout extends StatelessWidget {
         ),
         SocialIconCard(
           icon: Icons.mail_outline,
-          link: 'mailto:mail+website@immadisairaj.dev',
+          link: 'mailto:mail@immadisairaj.dev',
         ),
       ],
     );
@@ -36,11 +36,7 @@ class SocialIconsAbout extends StatelessWidget {
 }
 
 class SocialIconCard extends StatefulWidget {
-  const SocialIconCard({
-    super.key,
-    required this.icon,
-    required this.link,
-  });
+  const SocialIconCard({super.key, required this.icon, required this.link});
 
   final IconData icon;
   final String link;
