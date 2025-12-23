@@ -58,7 +58,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     }
   }
 
-  profileImageAnimation({Bio? oldWidget}) {
+  void profileImageAnimation({Bio? oldWidget}) {
     bool isLandscape = widget.screenHeight < widget.screenWidth;
     double firstContentHeight =
         isLandscape ? widget.screenHeight * 0.9 : widget.screenHeight * 0.7;
@@ -92,7 +92,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     _profileImageController.forward();
   }
 
-  profileImageOutAnimation() {
+  void profileImageOutAnimation() {
     RelativeRect initialPosition = _profileImageCurrentPosition;
 
     RelativeRect finalPosition = _profileImageOutsidePosition;
@@ -107,7 +107,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     _profileImageController.forward();
   }
 
-  bioTextAnimation({Bio? oldWidget}) {
+  void bioTextAnimation({Bio? oldWidget}) {
     bool isLandscape = widget.screenHeight < widget.screenWidth;
     double firstContentHeight =
         isLandscape ? widget.screenHeight * 0.9 : widget.screenHeight * 0.7;
@@ -138,7 +138,7 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     _bioTextController.forward();
   }
 
-  bioTextOutAnimation() {
+  void bioTextOutAnimation() {
     RelativeRect initialPosition = _bioTextCurrentPosition;
 
     RelativeRect finalPosition = _bioTextOutsidePosition;

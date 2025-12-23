@@ -48,7 +48,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
     );
   }
 
-  _scrollListener() {
+  void _scrollListener() {
     if (_scrollController.hasClients) {
       var max = _scrollController.position.maxScrollExtent;
       var current = _scrollController.offset;
