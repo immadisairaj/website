@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,8 +20,9 @@ class About extends StatefulWidget {
 
 class _AboutState extends State<About> with TickerProviderStateMixin {
   /// scroll controller for the whole page
-  final ScrollController _scrollController =
-      ScrollController(initialScrollOffset: 0);
+  final ScrollController _scrollController = ScrollController(
+    initialScrollOffset: 0,
+  );
 
   /// provides the percentage of page scrolled to the [PageStatus] widget
   double _pageLevel = 0;
@@ -102,8 +103,10 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                             child: MouseRegion(
                               cursor: SystemMouseCursors.click,
                               child: GestureDetector(
-                                onTap: () => _launchURL('/resume.pdf',
-                                    webOnlyWindowName: '_self'),
+                                onTap: () => _launchURL(
+                                  '/resume.pdf',
+                                  webOnlyWindowName: '_self',
+                                ),
                                 child: const Row(
                                   children: [
                                     Icon(
@@ -111,13 +114,12 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                       color: Colors.white,
                                     ),
                                     Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 8.0),
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 8.0,
+                                      ),
                                       child: Text(
                                         'Resume',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
+                                        style: TextStyle(color: Colors.white),
                                       ),
                                     ),
                                   ],
@@ -134,8 +136,10 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                   CupertinoIcons.doc,
                                   color: Colors.white,
                                 ),
-                                onPressed: () => _launchURL('/resume.pdf',
-                                    webOnlyWindowName: '_self'),
+                                onPressed: () => _launchURL(
+                                  '/resume.pdf',
+                                  webOnlyWindowName: '_self',
+                                ),
                               ),
                             ),
                           ),
@@ -143,7 +147,11 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   leading: isLandscape
                       ? Padding(
                           padding: const EdgeInsets.only(
-                              left: 20.0, top: 10, bottom: 10, right: 0),
+                            left: 20.0,
+                            top: 10,
+                            bottom: 10,
+                            right: 0,
+                          ),
                           child: MouseRegion(
                             cursor: SystemMouseCursors.click,
                             onEnter: (_) => _logoAnimationController.forward(),
@@ -186,10 +194,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Bio(
-                          screenHeight: height,
-                          screenWidth: width,
-                        ),
+                        Bio(screenHeight: height, screenWidth: width),
                         // Frameworks I currently work on
                         const SizedBox(height: 20),
                         Row(
@@ -211,8 +216,9 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 'Frameworks',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize:
-                                      isLandscape ? width * 0.03 : width * 0.05,
+                                  fontSize: isLandscape
+                                      ? width * 0.03
+                                      : width * 0.05,
                                 ),
                               ),
                             ),
@@ -237,8 +243,9 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 'Tools',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize:
-                                      isLandscape ? width * 0.03 : width * 0.05,
+                                  fontSize: isLandscape
+                                      ? width * 0.03
+                                      : width * 0.05,
                                 ),
                               ),
                             ),
@@ -284,8 +291,9 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 'Projects',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize:
-                                      isLandscape ? width * 0.03 : width * 0.05,
+                                  fontSize: isLandscape
+                                      ? width * 0.03
+                                      : width * 0.05,
                                 ),
                               ),
                             ),
@@ -303,8 +311,9 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 'Others',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize:
-                                      isLandscape ? width * 0.03 : width * 0.05,
+                                  fontSize: isLandscape
+                                      ? width * 0.03
+                                      : width * 0.05,
                                 ),
                               ),
                             ),
@@ -332,8 +341,9 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                           'Reach out to me at',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize:
-                                isLandscape ? width * 0.015 : width * 0.035,
+                            fontSize: isLandscape
+                                ? width * 0.015
+                                : width * 0.035,
                           ),
                         ),
                         const SizedBox(height: 5),
@@ -353,15 +363,17 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               TextSpan(text: 'Made with '),
                               TextSpan(
                                 text: '💙',
-                                style:
-                                    TextStyle(fontFamily: 'Noto Color Emoji'),
+                                style: TextStyle(
+                                  fontFamily: 'Noto Color Emoji',
+                                ),
                               ),
                               TextSpan(text: ' by Sai Rajendra Immadi'),
                             ],
                             style: TextStyle(
                               color: Colors.white70,
-                              fontSize:
-                                  isLandscape ? width * 0.02 : width * 0.04,
+                              fontSize: isLandscape
+                                  ? width * 0.02
+                                  : width * 0.04,
                             ),
                           ),
                         ),
@@ -386,7 +398,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
               level: _pageLevel,
               isLandscape: isLandscape,
             ),
-          )
+          ),
         ],
       ),
     );

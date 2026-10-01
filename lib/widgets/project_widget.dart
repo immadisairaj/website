@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/classes/project_class.dart';
@@ -6,10 +6,7 @@ import 'package:website/classes/project_class.dart';
 class ProjectWidget extends StatefulWidget {
   final Project project;
 
-  const ProjectWidget({
-    super.key,
-    required this.project,
-  });
+  const ProjectWidget({super.key, required this.project});
 
   @override
   State<ProjectWidget> createState() => _ProjectWidgetState();
@@ -74,30 +71,20 @@ class _ProjectWidgetState extends State<ProjectWidget>
                       Text(
                         widget.project.title,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge!
+                        style: Theme.of(context).textTheme.titleLarge!
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(
-                        height: 3,
-                      ),
+                      const SizedBox(height: 3),
                       if (widget.project.subTitle != null)
                         Text(
                           widget.project.subTitle!,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                       if (widget.project.subTitle != null)
-                        const SizedBox(
-                          height: 8,
-                        ),
+                        const SizedBox(height: 8),
                       if (widget.project.imagePath != null)
-                        Image(
-                          image: AssetImage(widget.project.imagePath!),
-                        ),
-                      const SizedBox(
-                        height: 5,
-                      ),
+                        Image(image: AssetImage(widget.project.imagePath!)),
+                      const SizedBox(height: 5),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(

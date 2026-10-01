@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:website/constants/constants.dart';
 import 'package:website/widgets/profile_image.dart';
@@ -16,14 +16,22 @@ class Bio extends StatefulWidget {
 class _BioState extends State<Bio> with TickerProviderStateMixin {
   late AnimationController _profileImageController;
   late Animation<RelativeRect> _profileImageAnimation;
-  final RelativeRect _profileImageOutsidePosition =
-      const RelativeRect.fromLTRB(-3000, 0, 3000, 0);
+  final RelativeRect _profileImageOutsidePosition = const RelativeRect.fromLTRB(
+    -3000,
+    0,
+    3000,
+    0,
+  );
   late RelativeRect _profileImageCurrentPosition;
 
   late AnimationController _bioTextController;
   late Animation<RelativeRect> _bioTextAnimation;
-  final RelativeRect _bioTextOutsidePosition =
-      const RelativeRect.fromLTRB(3000, 0, -3000, 0);
+  final RelativeRect _bioTextOutsidePosition = const RelativeRect.fromLTRB(
+    3000,
+    0,
+    -3000,
+    0,
+  );
   late RelativeRect _bioTextCurrentPosition;
 
   bool _isVisible = true;
@@ -60,8 +68,9 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
 
   void profileImageAnimation({Bio? oldWidget}) {
     bool isLandscape = widget.screenHeight < widget.screenWidth;
-    double firstContentHeight =
-        isLandscape ? widget.screenHeight * 0.9 : widget.screenHeight * 0.7;
+    double firstContentHeight = isLandscape
+        ? widget.screenHeight * 0.9
+        : widget.screenHeight * 0.7;
 
     RelativeRect initialPosition = _profileImageOutsidePosition;
 
@@ -74,19 +83,27 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     }
 
     RelativeRect finalPosition = isLandscape
-        ? RelativeRect.fromLTRB(widget.screenWidth / 9, widget.screenHeight / 4,
-            6 * widget.screenWidth / 9, widget.screenHeight / 4)
+        ? RelativeRect.fromLTRB(
+            widget.screenWidth / 9,
+            widget.screenHeight / 4,
+            6 * widget.screenWidth / 9,
+            widget.screenHeight / 4,
+          )
         : RelativeRect.fromLTRB(
             widget.screenWidth / 4,
             0.3 * firstContentHeight / 9,
             widget.screenWidth / 4,
-            5.5 * firstContentHeight / 9);
+            5.5 * firstContentHeight / 9,
+          );
 
     _profileImageController = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
-    _profileImageAnimation =
-        RelativeRectTween(begin: initialPosition, end: finalPosition)
-            .animate(_profileImageController);
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _profileImageAnimation = RelativeRectTween(
+      begin: initialPosition,
+      end: finalPosition,
+    ).animate(_profileImageController);
 
     _profileImageCurrentPosition = finalPosition;
     _profileImageController.forward();
@@ -98,10 +115,13 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     RelativeRect finalPosition = _profileImageOutsidePosition;
 
     _profileImageController = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
-    _profileImageAnimation =
-        RelativeRectTween(begin: initialPosition, end: finalPosition)
-            .animate(_profileImageController);
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _profileImageAnimation = RelativeRectTween(
+      begin: initialPosition,
+      end: finalPosition,
+    ).animate(_profileImageController);
 
     _profileImageCurrentPosition = finalPosition;
     _profileImageController.forward();
@@ -109,8 +129,9 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
 
   void bioTextAnimation({Bio? oldWidget}) {
     bool isLandscape = widget.screenHeight < widget.screenWidth;
-    double firstContentHeight =
-        isLandscape ? widget.screenHeight * 0.9 : widget.screenHeight * 0.7;
+    double firstContentHeight = isLandscape
+        ? widget.screenHeight * 0.9
+        : widget.screenHeight * 0.7;
 
     RelativeRect initialPosition = _bioTextOutsidePosition;
 
@@ -124,15 +145,26 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
 
     RelativeRect finalPosition = isLandscape
         ? RelativeRect.fromLTRB(
-            3.3 * widget.screenWidth / 9, 0, widget.screenWidth / 9, 0)
+            3.3 * widget.screenWidth / 9,
+            0,
+            widget.screenWidth / 9,
+            0,
+          )
         : RelativeRect.fromLTRB(
-            10, 3.5 * firstContentHeight / 9, 10, 0.5 * firstContentHeight / 9);
+            10,
+            3.5 * firstContentHeight / 9,
+            10,
+            0.5 * firstContentHeight / 9,
+          );
 
     _bioTextController = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
-    _bioTextAnimation =
-        RelativeRectTween(begin: initialPosition, end: finalPosition)
-            .animate(_bioTextController);
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _bioTextAnimation = RelativeRectTween(
+      begin: initialPosition,
+      end: finalPosition,
+    ).animate(_bioTextController);
 
     _bioTextCurrentPosition = finalPosition;
     _bioTextController.forward();
@@ -144,10 +176,13 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
     RelativeRect finalPosition = _bioTextOutsidePosition;
 
     _bioTextController = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
-    _bioTextAnimation =
-        RelativeRectTween(begin: initialPosition, end: finalPosition)
-            .animate(_bioTextController);
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _bioTextAnimation = RelativeRectTween(
+      begin: initialPosition,
+      end: finalPosition,
+    ).animate(_bioTextController);
 
     _bioTextCurrentPosition = finalPosition;
     _bioTextController.forward();
@@ -157,8 +192,9 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     bool isLandscape = widget.screenHeight < widget.screenWidth;
 
-    double firstContentHeight =
-        isLandscape ? widget.screenHeight * 0.9 : widget.screenHeight * 0.7;
+    double firstContentHeight = isLandscape
+        ? widget.screenHeight * 0.9
+        : widget.screenHeight * 0.7;
     double contentWidth = widget.screenWidth * 0.8;
     return VisibilityDetector(
       key: const Key('bio'),
@@ -181,37 +217,38 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
         }
       },
       child: SizedBox(
-          height: firstContentHeight,
-          width: widget.screenWidth,
-          child: Stack(
-            children: [
-              PositionedTransition(
-                rect: _profileImageAnimation,
-                child: const ProfileImage(),
-              ),
-              PositionedTransition(
-                rect: _bioTextAnimation,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      AppConstants.bio,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        letterSpacing: 2,
-                        wordSpacing: 2,
-                        height: 1.25,
-                        fontSize: isLandscape
-                            ? contentWidth / 3 * 0.075
-                            : firstContentHeight / 3 * 0.11,
-                      ),
+        height: firstContentHeight,
+        width: widget.screenWidth,
+        child: Stack(
+          children: [
+            PositionedTransition(
+              rect: _profileImageAnimation,
+              child: const ProfileImage(),
+            ),
+            PositionedTransition(
+              rect: _bioTextAnimation,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    AppConstants.bio,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 2,
+                      wordSpacing: 2,
+                      height: 1.25,
+                      fontSize: isLandscape
+                          ? contentWidth / 3 * 0.075
+                          : firstContentHeight / 3 * 0.11,
                     ),
                   ),
                 ),
               ),
-            ],
-          )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

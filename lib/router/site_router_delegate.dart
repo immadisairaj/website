@@ -1,6 +1,6 @@
 import 'dart:js_interop';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:website/router/site_route_path.dart';
 import 'package:website/router/site_transition_delegate.dart';
 import 'package:website/screens/about/about.dart';
@@ -29,13 +29,12 @@ class SiteRouterDelegate extends RouterDelegate<SiteRoutePath>
   @override
   Widget build(BuildContext context) {
     final List<Page<void>> pages = [
-      MaterialPage(
-        key: const ValueKey('Base'),
-        child: Container(),
-      ),
+      MaterialPage(key: const ValueKey('Base'), child: Container()),
       if (_show404)
         const MaterialPage(
-            key: ValueKey('UnknownPage'), child: UnknownScreen()),
+          key: ValueKey('UnknownPage'),
+          child: UnknownScreen(),
+        ),
       if (!_isHome && !_isAbout && !_show404)
         MaterialPage(
           key: const ValueKey('SplashPage'),

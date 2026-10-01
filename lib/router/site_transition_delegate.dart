@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class SiteTransitionDelegate extends TransitionDelegate<void> {
   @override
-  Iterable<RouteTransitionRecord> resolve(
-      {required List<RouteTransitionRecord> newPageRouteHistory,
-      required Map<RouteTransitionRecord?, RouteTransitionRecord>
-          locationToExitingPageRoute,
-      required Map<RouteTransitionRecord?, List<RouteTransitionRecord>>
-          pageRouteToPagelessRoutes}) {
+  Iterable<RouteTransitionRecord> resolve({
+    required List<RouteTransitionRecord> newPageRouteHistory,
+    required Map<RouteTransitionRecord?, RouteTransitionRecord>
+    locationToExitingPageRoute,
+    required Map<RouteTransitionRecord?, List<RouteTransitionRecord>>
+    pageRouteToPagelessRoutes,
+  }) {
     final results = <RouteTransitionRecord>[];
 
     for (final pageRoute in newPageRouteHistory) {
@@ -19,11 +20,11 @@ class SiteTransitionDelegate extends TransitionDelegate<void> {
 
     for (final exitingPageRoute in locationToExitingPageRoute.values) {
       if (exitingPageRoute.isWaitingForExitingDecision) {
-        exitingPageRoute.markForRemove();
+        exitingPageRoute.markForComplete();
         final pagelessRoutes = pageRouteToPagelessRoutes[exitingPageRoute];
         if (pagelessRoutes != null) {
           for (final pagelessRoute in pagelessRoutes) {
-            pagelessRoute.markForRemove();
+            pagelessRoute.markForComplete();
           }
         }
       }

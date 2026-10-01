@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({super.key});
@@ -8,9 +8,7 @@ class ProfileImage extends StatelessWidget {
     return Card(
       elevation: 6,
       shadowColor: Colors.black,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(50),
         child: Image.asset(

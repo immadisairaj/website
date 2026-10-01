@@ -13,18 +13,27 @@ class AppConstants {
   // Skills
 
   /// frameworks
-  static const String frameworks = 'Flutter • '
+  static const String frameworks =
+      'Flutter • '
       'Angular • '
       'React Native';
 
   /// tools
-  static const String tools = 'Git • '
+  static const String tools =
+      'Git • '
       'GitHub • '
       'VS Code • '
       'Adobe Premiere Pro';
 
   // projects
   static const List<Project> projects = [
+    Project(
+      title: 'Step Timer',
+      subTitle: 'March 2026',
+      description: 'Step Timer is your effortless companion for running timers in a sequence, one after another automatically.',
+      imagePath: 'assets/projects/steptimer.png',
+      link: 'https://steptimer.immadisairaj.dev',
+    ),
     Project(
       title: 'Curious Explorer Portfolio',
       subTitle: 'September 2023',
@@ -35,7 +44,8 @@ class AppConstants {
     Project(
       title: 'Prides',
       subTitle: 'March 2023',
-      description: 'A flutter pub package that helps in creating '
+      description:
+          'A flutter pub package that helps in creating '
           'custom Slides and Presenting them.',
       imagePath: 'assets/projects/prides.png',
       link: 'https://pub.dev/packages/prides',
@@ -43,7 +53,8 @@ class AppConstants {
     Project(
       title: 'Sai Chits',
       subTitle: 'August 2022',
-      description: 'An appliation that is similar to swami chits '
+      description:
+          'An appliation that is similar to swami chits '
           'used by students of Sri Sathya Sai Baba college which is '
           'digitalized to make it easier and accessible for all the devotees. '
           'This application supports in many different platforms '
@@ -54,7 +65,8 @@ class AppConstants {
     Project(
       title: 'Digital LCD Number',
       subTitle: 'July 2022',
-      description: 'An automatic sizer digital single-digit number with '
+      description:
+          'An automatic sizer digital single-digit number with '
           'LCD style widget.',
       imagePath: 'assets/projects/digital-lcd-number.png',
       link: 'https://pub.dev/packages/digital_lcd_number',
@@ -77,7 +89,8 @@ class AppConstants {
     Project(
       title: 'Website',
       subTitle: 'Mar 2022',
-      description: 'A flutter web application for my portfolio'
+      description:
+          'A flutter web application for my portfolio'
           ' which mostly includes animations',
       imagePath: 'assets/projects/website.png',
       link: 'https://immadisairaj.dev',
@@ -85,7 +98,8 @@ class AppConstants {
     Project(
       title: 'Arrow Pad',
       subTitle: 'Feb 2022',
-      description: 'A flutter pub package which is a circular pad with 4 '
+      description:
+          'A flutter pub package which is a circular pad with 4 '
           'arrows which has a functionality of 4 buttons.',
       imagePath: 'assets/projects/arrow-pad.png',
       link: 'https://pub.dev/packages/arrow_pad',
@@ -93,7 +107,8 @@ class AppConstants {
     Project(
       title: 'Sai Voice',
       subTitle: 'Apr 2021',
-      description: 'A radio player mobile application which streams audio from'
+      description:
+          'A radio player mobile application which streams audio from'
           ' Radio Sai Global Harmony.',
       imagePath: 'assets/projects/sai-voice.png',
       link: 'https://radiosai.immadisairaj.dev',
@@ -101,7 +116,8 @@ class AppConstants {
     Project(
       title: 'Carousel Portfolio Template',
       subTitle: 'Jun 2020',
-      description: 'A web application template built using Flutter Framework.'
+      description:
+          'A web application template built using Flutter Framework.'
           ' The application allows people to have an online presence with '
           'their own personal website with which they can demonstrate their '
           'skills and projects. It can be used by anyone by just editing a '
@@ -112,7 +128,8 @@ class AppConstants {
     Project(
       title: 'Distributed Group Chat System',
       subTitle: 'Mar 2020',
-      description: 'A Terminal based Distributed Group Chat System. '
+      description:
+          'A Terminal based Distributed Group Chat System. '
           'The application is built using Java with the help of Remote Method '
           'Invocation(RMI). The application is to be run from different '
           'terminals across the same Local Area Network.',
@@ -122,7 +139,8 @@ class AppConstants {
     Project(
       title: 'Extinction Species',
       subTitle: 'Oct 2019',
-      description: 'An application which shows the list of extinct species '
+      description:
+          'An application which shows the list of extinct species '
           'and the reasons for their extinction. It uses ICUN API and '
           'shows the data present there. It is built using Flutter Framework.',
       imagePath: 'assets/projects/extinction-species.png',
@@ -131,7 +149,8 @@ class AppConstants {
     Project(
       title: 'Harry Potter',
       subTitle: 'Aug 2019',
-      description: 'A cross-platform mobile application that can '
+      description:
+          'A cross-platform mobile application that can '
           'be run on both iOS and Android, built using Flutter Framework. '
           'It is built for the fans of Harry Potter to test their luck on the '
           'sorting hat and also know the different characters and different '
@@ -142,7 +161,8 @@ class AppConstants {
     Project(
       title: 'Codeforces App',
       subTitle: 'Apr 2019',
-      description: 'A native Android Application built using Java. '
+      description:
+          'A native Android Application built using Java. '
           'The application helps people to view details and recent '
           'problem submission of a Codeforces user.',
       imagePath: 'assets/projects/codeforces-app.jpeg',
@@ -151,7 +171,8 @@ class AppConstants {
     Project(
       title: 'Quiz',
       subTitle: 'Dec 2018',
-      description: 'A native Android Application built using Java. '
+      description:
+          'A native Android Application built using Java. '
           'The application can be used to test a person\'s knowledge in a '
           'particular category or overall category and learn from it.'
           ' It fetches the data from an open-source API named Open Trivia.',

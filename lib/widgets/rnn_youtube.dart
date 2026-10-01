@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RNNYoutube extends StatefulWidget {
-  const RNNYoutube({
-    super.key,
-  });
+  const RNNYoutube({super.key});
 
   @override
   State<RNNYoutube> createState() => _RNNYoutubeState();
@@ -65,19 +63,13 @@ class _RNNYoutubeState extends State<RNNYoutube> with TickerProviderStateMixin {
                   child: isLandscape
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            _text(),
-                            _image(),
-                          ],
+                          children: [_text(), _image()],
                         )
                       : SizedBox(
                           height: height * 0.4,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              _text(),
-                              _image(),
-                            ],
+                            children: [_text(), _image()],
                           ),
                         ),
                 ),

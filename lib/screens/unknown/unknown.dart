@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class UnknownScreen extends StatelessWidget {
   const UnknownScreen({super.key});
@@ -11,19 +11,10 @@ class UnknownScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              '404',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
+            Text('404', style: TextStyle(color: Colors.white, fontSize: 24)),
             Text(
               'Unknown Page',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
+              style: TextStyle(color: Colors.white, fontSize: 24),
             ),
           ],
         ),

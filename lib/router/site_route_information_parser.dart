@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:website/router/site_route_path.dart';
 
 class SiteRouteInformationParser extends RouteInformationParser<SiteRoutePath> {
   @override
   Future<SiteRoutePath> parseRouteInformation(
-      RouteInformation routeInformation) async {
+    RouteInformation routeInformation,
+  ) async {
     final uri = routeInformation.uri;
     if (uri.pathSegments.isEmpty) {
       return SiteRoutePath.splash();
@@ -21,21 +22,13 @@ class SiteRouteInformationParser extends RouteInformationParser<SiteRoutePath> {
   @override
   RouteInformation? restoreRouteInformation(configuration) {
     if (configuration.isUnknown) {
-      return RouteInformation(
-        uri: Uri.parse('/404'),
-      );
+      return RouteInformation(uri: Uri.parse('/404'));
     } else if (configuration.isHomePage) {
-      return RouteInformation(
-        uri: Uri.parse('/home'),
-      );
+      return RouteInformation(uri: Uri.parse('/home'));
     } else if (configuration.isAboutPage) {
-      return RouteInformation(
-        uri: Uri.parse('/about'),
-      );
+      return RouteInformation(uri: Uri.parse('/about'));
     } else if (configuration.isSplashPage) {
-      return RouteInformation(
-        uri: Uri.parse('/'),
-      );
+      return RouteInformation(uri: Uri.parse('/'));
     }
     return null;
   }

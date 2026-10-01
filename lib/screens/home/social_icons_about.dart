@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -7,23 +7,23 @@ class SocialIconsAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SocialIconCard(
-          icon: FontAwesomeIcons.github,
+          icon: FontAwesomeIcons.github.data,
           link: 'https://github.com/immadisairaj',
         ),
         SocialIconCard(
-          icon: FontAwesomeIcons.twitter,
+          icon: FontAwesomeIcons.twitter.data,
           link: 'https://twitter.com/immadisairaj',
         ),
         SocialIconCard(
-          icon: FontAwesomeIcons.linkedin,
+          icon: FontAwesomeIcons.linkedin.data,
           link: 'http://linkedin.com/in/immadisairaj/',
         ),
         SocialIconCard(
-          icon: FontAwesomeIcons.instagram,
+          icon: FontAwesomeIcons.instagram.data,
           link: 'https://www.instagram.com/immadisairaj/',
         ),
         SocialIconCard(

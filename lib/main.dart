@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:website/router/site_route_information_parser.dart';
 import 'package:website/router/site_router_delegate.dart';
 
@@ -28,10 +28,7 @@ class MyApp extends StatelessWidget {
   }
 
   ThemeData _buildTheme() {
-    var baseTheme = ThemeData(
-      useMaterial3: true,
-      colorSchemeSeed: Colors.cyan,
-    );
+    var baseTheme = ThemeData(useMaterial3: true, colorSchemeSeed: Colors.cyan);
 
     return baseTheme.copyWith(
       textTheme: GoogleFonts.rubikTextTheme(baseTheme.textTheme),

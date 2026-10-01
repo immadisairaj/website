@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -90,10 +90,11 @@ class _HomeState extends State<Home> {
               Center(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
-                      namePaddingfromLTRB[0],
-                      namePaddingfromLTRB[1],
-                      namePaddingfromLTRB[2],
-                      namePaddingfromLTRB[3]),
+                    namePaddingfromLTRB[0],
+                    namePaddingfromLTRB[1],
+                    namePaddingfromLTRB[2],
+                    namePaddingfromLTRB[3],
+                  ),
                   child: const Name(),
                 ),
               ),
@@ -150,7 +151,8 @@ class _HomeState extends State<Home> {
                                 padding: EdgeInsets.only(right: width * 0.08),
                                 child: ElevatedButton(
                                   onPressed: () => _launchURL(
-                                      'https://immadisairaj.dev/blog'),
+                                    'https://immadisairaj.dev/blog',
+                                  ),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xFFE39356),
                                     shadowColor: Colors.black,
@@ -202,7 +204,7 @@ class _HomeState extends State<Home> {
   /// this uses input of [x] and [y] - position of cursor
   ///
   /// automatically called from [_onHoverUpdate]
-  void _updateNamePadding({x = 0.0, y = 0.0}) {
+  void _updateNamePadding({double x = 0.0, y = 0.0}) {
     double yCenter = MediaQuery.of(context).size.height / 2;
     double xCenter = MediaQuery.of(context).size.width / 2;
 
@@ -235,16 +237,16 @@ class _HomeState extends State<Home> {
   /// updates [x] and [y]
   ///
   /// To track efficiently, use this on top of tree;
-  Widget _trackCursonMovement(
-      {required double height, required double width, required child}) {
+  Widget _trackCursonMovement({
+    required double height,
+    required double width,
+    required child,
+  }) {
     return Container(
       color: Colors.transparent,
       height: height,
       width: width,
-      child: MouseRegion(
-        onHover: _onHoverUpdate,
-        child: child,
-      ),
+      child: MouseRegion(onHover: _onHoverUpdate, child: child),
     );
   }
 }
